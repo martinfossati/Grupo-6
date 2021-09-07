@@ -1,0 +1,11 @@
+[
+ {
+  "id": 1,
+  "nombre": "Martin",
+  "apellido": "Fossati",
+  "fechaNacimiento": "2002-04-26",
+  "email": "tinfossati@gmail.com",
+  "password": "$2a$10$9dc5mmeRr/1YQLLlTg7Sd.NIZ01KI45l1T.4/I6dgJYtV.hLTYAYS",
+  "avatar": "avatarUser1630961558324.jpg"
+ }
+]

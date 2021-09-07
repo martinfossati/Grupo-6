@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <%- include ('../partials/head.ejs') %>
+    <title>Mi cuenta</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/home.css">  
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/login-register.css">
+</head>
+<body class="infoUser">
+    <%- include ('../partials/header.ejs') %>
+    <div class="main-section">
+        <div class="barra-lateral-izquierda">
+            <nav>
+                <a href="">Mi cuenta</a>
+                <a href="">Gestionar cuenta</a>
+                <a href="">Idioma</a>
+                <a href="">Recibos</a>
+            </nav>
+        </div>
+        <div class="mi-cuenta">
+            <div class="img-avatar" style="background-image: url(/images/avatars/<%=user.avatar%>)">
+                <span>¡Hola, <%= user.nombre %> !</span>
+            </div> 
+            <div class="informacion-personal">
+                <h3>Información personal</h3>
+                <div class="propiedad-formulario">
+                    <h4 id="espacio">Nombre:</h4>
+                    <h4>Apellido:</h4>
+                    <h4>Email:</h4>
+                    <h4>Fecha: </h4>
+                </div>
+                <div class="prueba">
+                    <form action="">
+                        <div class="input-read">
+                            <input type="text" name="nombre" value="<%= user.nombre %>" readonly="readonly" class="form-onlyread" id="dtll">
+                        </div>
+                        <div class="input-read">
+                            <input type="text" name="apellido" value="<%= user.apellido %>" readonly="readonly" class="form-onlyread" id="dtll">
+                        </div>
+                        <div class="input-read">
+                            <input type="email" name="email" value="<%= user.email %>" readonly="readonly" class="form-onlyread" id="dtll">
+                        </div>
+                        <div class="input-read">
+                            <input type="date" name="fechaNacimiento" value="<%= user.fechaNacimiento %>" readonly="readonly" class="form-onlyread" id="dtll">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function menuToggle(){
+            const toggleMenu = document.querySelector('.menu');
+            toggleMenu.classList.toggle('active')
+        }
+    </script>
+</body>
+</html>

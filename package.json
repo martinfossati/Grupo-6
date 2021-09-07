@@ -1,0 +1,33 @@
+{
+  "name": "grupo-6",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "engines": {
+    "node": "14.16.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/martinfossati/Grupo-6.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/martinfossati/Grupo-6/issues"
+  },
+  "homepage": "https://github.com/martinfossati/Grupo-6#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.5",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "express-validator": "^6.12.1",
+    "method-override": "^3.0.0",
+    "multer": "^1.4.3"
+  }
+}
