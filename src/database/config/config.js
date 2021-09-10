@@ -1,10 +1,11 @@
 module.exports = {
   "development": {
-    "username": "root",
-    "password": null,
-    "database": "fansclub_db",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "username": "fansclub",
+    "password": "fansclubdh2021",
+    "database": "fansclub_dh",
+    "host": "mysql-fansclub.alwaysdata.net",
+    "dialect": "mysql",
+    "port": 3306
   },
   "test": {
     "username": "root",
