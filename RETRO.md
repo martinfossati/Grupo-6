@@ -15,3 +15,7 @@ Aprovechando  la guia de preguntas del sprint 2 nos planteamos:
 
 🔊 Sábado 31 de Julio - Reunión#2/Sprint 4
 Con Martin en los teclados y luego de modificar las vistas de los formularios de creacion y edición, realizamos juntos los CRUD para "hacer la magia". Quedamos para el domingo o martes, realizar el "Delete" y finalizar el sprint.
+
+🔊 Viernes 10 de Septiembre - Reunión Sprint 6
+Luego de solucionar un problema con herokku que nos llevo a migrar a un  nuevo repositorio el TP, realizamos la mayor parte del trabajo del sprint, que habiamos comenzado previamente. Resta unos detalles que terminaremos el martes 14.
+El sprint fue pusheado por Martin y el resto de los integrantes realizaremos un commit a efectos de activarnos como colaboradores.
