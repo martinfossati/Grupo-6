@@ -37,5 +37,5 @@ app.use('/', usersRoutes);
 
 /** PORT **/
 app.listen(process.env.PORT || 3000, function() {
-    console.log("Servidor corriendo");
+    console.log("Servidor Grupo 6 corriendo");
 });
