@@ -1,8 +1,7 @@
 const fs = require('fs');
 const path = require('path');
-
-const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
-const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+const db = require('../database/models')
+const Op = db.Sequelize.Op
 
 const controladorProducts = 
 {
@@ -55,33 +54,17 @@ const controladorProducts =
         res.redirect('/');
     },
     almacenamientoProducto: (req, res) => {
-
-        idNuevo=0;
-
-		for (let elemento of products){
-			if (idNuevo<elemento.id){
-				idNuevo=elemento.id;
-			}
-		}
-
-		idNuevo++;
-
-
 		let nombreImagen = req.file.filename;
 
-		let productoNuevo =  {
-			id:   idNuevo,
-			nombreProducto: req.body.nombreProducto,
+		db.Productos.create({
+			nombre: req.body.nombreProducto,
 			precio: req.body.precio,
 			descuento: req.body.descuento,
 			descripcion: req.body.descripcion,
-            modoDeUso: req.body.modoDeUso,
+            modo_de_uso: req.body.modoDeUso,
 			imagen: nombreImagen,
-		};
-
-		products.push(productoNuevo);
-
-		fs.writeFileSync(productsFilePath, JSON.stringify(products,null,' '));
+            categoria: req.body.categoria
+		});
 
 		res.redirect('/');
 

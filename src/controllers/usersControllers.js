@@ -1,10 +1,10 @@
 const fs = require('fs');
 const path = require('path');
 const bcryptjs = require('bcryptjs');
-const usersFilePath = path.join(__dirname, '../data/usersDataBase.json');
-const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 const { validationResult } = require('express-validator');
 const User = require('../models/User');
+const db = require('../database/models');
+const Op = db.Sequelize.Op;
 
 
 const controladorUsers = 
@@ -13,33 +13,36 @@ const controladorUsers =
         res.render('users/login')
     },
 	processLogin: (req, res) => {
-        let userToLogin = User.findByField('email', req.body.email);
-
-        if(userToLogin) {
-            let comparePassword = bcryptjs.compareSync(req.body.password, userToLogin.password);
-            if(comparePassword) {
-                delete userToLogin.password;
-                req.session.userLogged = userToLogin;
-
-                if(req.body.rememberUser) {
-                    res.cookie('userEmail', req.body.email)
+        db.Usuarios.findOne({
+            where: {
+                email: req.body.email
+            }
+        }).then(function(usuario){
+            if(usuario) {
+                let comparePassword = bcryptjs.compareSync(req.body.password, usuario.password);
+                if(comparePassword) {
+                    delete usuario.password;
+                    req.session.userLogged = usuario;
+                    if(req.body.rememberUser) {
+                        res.cookie('userEmail', req.body.email)
+                    }
+                    return res.redirect('/infoUser')
                 }
-                return res.redirect('/infoUser')
+                return res.render('users/login', {
+                    errors: {
+                        email: {
+                            msg: 'Credenciales inválidas'
+                        }
+                    }
+                });
             }
             return res.render('users/login', {
                 errors: {
                     email: {
-                        msg: 'Credenciales inválidas'
+                        msg: 'Revisa que la información sea correcta'
                     }
                 }
             });
-        }
-        return res.render('users/login', {
-            errors: {
-                email: {
-                    msg: 'Revisa que la información sea correcta'
-                }
-            }
         });
 	},
     register: (req, res) => {
@@ -68,13 +71,14 @@ const controladorUsers =
             });
         }
 
-        let userToCreate = {
-            ...req.body,
+        db.Usuarios.create({
+            nombre: req.body.nombre,
+            apellido: req.body.apellido,
+            fecha_nacimiento: req.body.fechaNacimiento,
+            email: req.body.email,
             password: bcryptjs.hashSync(req.body.password, 10),
             avatar: req.file.filename
-        }
-
-        let userCreated = User.create(userToCreate);
+        });
 
         return res.render('users/login');
     },
