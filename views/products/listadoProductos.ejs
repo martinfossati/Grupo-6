@@ -8,7 +8,7 @@
     </head>
     <body>
         <%- include ('../partials/header.ejs') %>
-        <% for(let producto of productos) { %>
+        <% for(let producto of todosLosProductos) { %>
         <section class="total-productos">
             <a href="/productos/detalle/<%= producto.id %> " id="cajaProducto">
                 <div>

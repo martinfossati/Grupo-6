@@ -1,5 +1,7 @@
 const fs = require('fs');
 const path = require('path');
+const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
+const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 const db = require('../database/models')
 const Op = db.Sequelize.Op
 
@@ -10,52 +12,60 @@ const controladorProducts =
         let idURL = req.params.id;
 		let productoEncontrado;
 
-		for (let elemento of products){
-			if (elemento.id==idURL){
-				productoEncontrado=elemento;
-				break;
-			}
-		}
-        res.render('products/detalleProducto', {productoDetalle: productoEncontrado});
+        db.Productos.findOne({
+            where: {id: idURL}
+        }).then(resultado =>{
+            productoEncontrado = resultado;
+            res.render('products/detalleProducto', {productoDetalle: productoEncontrado});
+        })
     },
     creacionProducto: (req, res) => {
         res.render('products/creacionProducto')
     },
     edicionProducto: (req, res) => {
 
-        let id = req.params.id;
+        let idURL = req.params.id;
 		let productoEncontrado;
-        
-		for (let elemento of products){
-            if (id==elemento.id){
-                productoEncontrado=elemento;
-			}
-		}
-        
-        res.render('products/edicionProducto', {ProductoModificar: productoEncontrado});
-    },
-    productoModificado: (req, res) => {
 
-        let id = req.params.id;
-
-        for(elemento of products){
-            if(id==elemento.id){
-                 elemento.nombreProducto= req.body.nombreProducto;
-                 elemento.precio= req.body.precio;
-                 elemento.descuento= req.body.descuento;
-                 elemento.descripcion= req.body.descripcion;
-                 elemento.modoDeUso= req.body.modoDeUso;
-                 break;
+        db.Productos.findOne({
+            where: {
+                id: idURL
             }
-        }
+        }).then(producto => {
+            productoEncontrado = producto;
+        });
+        
+        res.render('products/edicionProducto', {productoEncontrado});
+    },
+    productoModificado: async (req, res) => {
 
-        fs.writeFileSync(productsFilePath, JSON.stringify(products,null,' '));
+        let idURL = req.params.id;
+        let categorias = await db.Categorias.findOne({
+            where: {nombre: req.body.categoria}
+        })
+
+        db.Productos.update({
+            nombre: req.body.nombreProducto,
+            precio: req.body.precio,
+            descuento: req.body.descuento,
+            descripcion: req.body.descripcion,
+            modo_de_uso: req.body.modoDeUso,
+            imagen: req.file.filename,
+            id_categoria: categorias["id"]
+        },
+        {
+            where: {id: idURL}
+        });
 
         res.redirect('/');
     },
-    almacenamientoProducto: (req, res) => {
-		let nombreImagen = req.file.filename;
+    almacenamientoProducto: async (req, res) => {
 
+		let nombreImagen = req.file.filename;
+        let categorias = await db.Categorias.findOne({
+            where: {nombre: req.body.categoria}
+        })
+        
 		db.Productos.create({
 			nombre: req.body.nombreProducto,
 			precio: req.body.precio,
@@ -63,29 +73,29 @@ const controladorProducts =
 			descripcion: req.body.descripcion,
             modo_de_uso: req.body.modoDeUso,
 			imagen: nombreImagen,
-            categoria: req.body.categoria
-		});
-
-		res.redirect('/');
-
+            id_categoria: categorias["id"]
+		}).then(() => {
+            res.redirect('/');
+        });
     },
     eliminacionProducto: (req, res) => {
 
-        let id = req.params.id;
+        let idURL = req.params.id;
 
-        let productosActualizados = products.filter(function(elemento){
-            return id != elemento.id;
+        db.Productos.destroy({
+            where: {id: idURL}
         });
-
-        fs.writeFileSync(productsFilePath, JSON.stringify(productosActualizados,null,' '));
 
         res.redirect('/');
         
     },
     listadoProductos: (req, res) => {
-        const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-        res.render('products/listadoProductos', {productos: products})
-    
+        let todosLosProductos;
+        db.Productos.findAll()
+        .then(productos => {
+            todosLosProductos = productos;
+            res.render('products/listadoProductos', {todosLosProductos})
+        })
     }
 };
 

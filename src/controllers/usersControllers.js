@@ -17,7 +17,7 @@ const controladorUsers =
             where: {
                 email: req.body.email
             }
-        }).then(function(usuario){
+        }).then(usuario => {
             if(usuario) {
                 let comparePassword = bcryptjs.compareSync(req.body.password, usuario.password);
                 if(comparePassword) {
