@@ -33,9 +33,9 @@ const controladorProducts =
             }
         }).then(producto => {
             productoEncontrado = producto;
+            res.render('products/edicionProducto', {productoEncontrado});
         });
         
-        res.render('products/edicionProducto', {productoEncontrado});
     },
     productoModificado: async (req, res) => {
 
