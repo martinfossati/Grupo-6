@@ -9,6 +9,7 @@ const methodOverride =  require('method-override');
 const session = require('express-session');
 const cookies = require('cookie-parser');
 const userLoggedMiddleware = require('./src/middlewares/userLoggedMiddleware');
+require("dotenv").config();
 
 /** EXPRESS **/
 const app = express();
@@ -20,7 +21,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(methodOverride('_method'));
 app.use(cookies());
-app.use(session({secret: "FansClub Secret", resave: false, saveUninitialized: false}));
+app.use(session({secret: process.env.SESSION_SECRET, resave: false, saveUninitialized: false}));
 app.use(userLoggedMiddleware);
 
 /** TEMPLATE ENGINE **/
