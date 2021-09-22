@@ -19,3 +19,9 @@ Con Martin en los teclados y luego de modificar las vistas de los formularios de
 🔊 Viernes 10 de Septiembre - Reunión Sprint 6
 Luego de solucionar un problema con herokku que nos llevo a migrar a un  nuevo repositorio el TP, realizamos la mayor parte del trabajo del sprint, que habiamos comenzado previamente. Resta unos detalles que terminaremos el martes 14.
 El sprint fue pusheado por Martin y el resto de los integrantes realizaremos un commit a efectos de activarnos como colaboradores.
+
+🔊 Miercoles 15 de Septiembre - Reunión Sprint 6
+En clase nos reunimos en equipo para poder finalizar el Sprint 6, el cual quedó finalizado en cuanto a los aspectos tenicos que el mismo requeria, quedando pendiente verificar conectividad de Heroku.
+
+🔊 Viernes Lunes 20 de Septiembre - Reunión Sprint 6
+Nuevamente en clase enfocamos el espacio a poder resolver la conectividad con Heroku, luego de contar con la colaboración de Rick pudimos solucionar los inconvenientes y levantar Heroku por lo que el sprint 6 quedó finalizado.
