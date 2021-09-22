@@ -23,21 +23,21 @@
                     </ol>
                     <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img class="d-block w-100" src="/images/fotopareja2.jpeg" alt="First slide">
+                        <img class="d-block w-100" src="/images/mainImages/carrusel1.jpeg" alt="First slide">
                         <div class="carousel-caption d-none d-md-block">
                             <h5>Prueba</h5>
                             <p>Prueba</p>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block w-100" src="/images/fotopareja3.jpeg" alt="Second slide">
+                        <img class="d-block w-100" src="/images/mainImages/carrusel2.jpeg" alt="Second slide">
                         <div class="carousel-caption d-none d-md-block">
                             <h5>Prueba</h5>
                             <p>Prueba</p>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block w-100" src="/images/pareja-fortwo-madrid.jpeg" alt="Third slide">
+                        <img class="d-block w-100" src="/images/mainImages/carrusel3.jpeg" alt="Third slide">
                         <div class="carousel-caption d-none d-md-block">
                             <h5>Prueba</h5>
                             <p>Prueba</p>
@@ -56,10 +56,11 @@
                 </section>
                 <div class="titulos"><h3>Ofertas</h3></div>
                 <section class="total-productos">
-                <a href="/productos/detalle" id="cajaProducto">
+                    <% for(let producto of todosLosProductos) {%> 
+                <a href="/productos/detalle/<%= producto.id%>" id="cajaProducto">
                     <div>
                         <div class="imagen-producto">
-                            <img id="imagenes" src="/images/productocrema1.jpeg"> </img>
+                            <img id="imagenes" src="/images/<%= producto.imagen %> "> </img>
                         </div>
                         <div class="textoProductos">
                             <p class="precios">$100</p>
@@ -68,30 +69,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="/productos/detalle" id="cajaProducto">
-                    <div>
-                        <div class="imagen-producto">
-                            <img id="imagenes" src="/images/productorosa3.jpeg" width="auto" height="350px"> </img>
-                        </div>
-                        <div class="textoProductos" style="width: device-width;">
-                            <p class="precios">$2500</p>
-                            <p class="descuento">10% off</p>
-                            <p class="descrip">Vibrador</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="/productos/detalle" id="cajaProducto">
-                    <div>
-                        <div class="imagen-producto">
-                            <img id="imagenes" src="/images/productovioleta.jpeg" width="auto" height="350px"> </img>
-                        </div>
-                        <div class="textoProductos" style="width: device-width;">
-                            <p class="precios">$1100</p>
-                            <p class="descuento">50% off</p>
-                            <p class="descrip">Vibrador</p>
-                        </div>
-                    </div>
-                </a>
+                <% } %> 
                 </section>
                 <div class="titulos"><h3>Mas visitados</h3></div>
                 <section class="total-productos">

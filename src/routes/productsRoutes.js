@@ -10,7 +10,7 @@ const productsControllers = require('./../controllers/productsControllers');
 /******** Multer ********/
 const multerDiskStorage = multer.diskStorage({
     destination: function(req, file, cb) {      
-     cb(null, path.join(__dirname,'../../public/images'));   
+     cb(null, path.join(__dirname,'../../public/images/products'));   
     },
     filename: function(req, file, cb) {         
      let imageName = 'imgProduct' + Date.now() + path.extname(file.originalname);   // milisegundos y extensión de archivo original

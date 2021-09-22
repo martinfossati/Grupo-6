@@ -13,12 +13,12 @@
             <a href="/productos/detalle/<%= producto.id %> " id="cajaProducto">
                 <div>
                     <div class="imagen-producto">
-                        <img id="imagenes" src="/images/productocrema1.jpeg"> </img>
+                        <img id="imagenes" src="/images/<%= producto%> "> </img>
                     </div>
                     <div class="textoProductos">
                         <p class="precios">$<%= producto.precio %> </p>
                         <p class="descuento"><%= producto.descuento %> % off</p>
-                        <p class="descrip"><%= producto.nombreProducto %> </p>
+                        <p class="descrip"><%= producto.nombre %> </p>
                     </div>
                 </div>
             </a>
