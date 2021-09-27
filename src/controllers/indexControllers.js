@@ -3,13 +3,18 @@ const Op = db.Sequelize.Op
 
 const controladorIndex =
 {
-    index: (req, res) => {
-        let todosLosProductos;
-        db.Productos.findAll()
-        .then(productos => {
-            todosLosProductos = productos;
-            res.render('index', {todosLosProductos})
-        })
+    index: async (req, res) => {
+
+        let todosLosProductos = await db.Productos.findAll();
+
+        let masVisitados = await db.Productos.findAll({
+            offset: 3,
+            limit: 4
+        });
+
+        let todasLasPromesas = Promise.all([todosLosProductos, masVisitados]).then(productos => {
+            res.render('index', {productos})
+        });
     }
 };
 

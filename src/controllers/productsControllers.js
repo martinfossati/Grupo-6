@@ -92,7 +92,7 @@ const controladorProducts =
             todosLosProductos = productos;
             res.render('products/listadoProductos', {todosLosProductos})
         })
-    }
+    },
 };
 
 module.exports = controladorProducts;

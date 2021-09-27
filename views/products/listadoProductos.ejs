@@ -3,27 +3,86 @@
     <head>
         <%- include ('../partials/head.ejs') %>
         <title>Listado de productos</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="/css/home.css">  
     </head>
     <body>
         <%- include ('../partials/header.ejs') %>
-        <% for(let producto of todosLosProductos) { %>
-        <section class="total-productos">
-            <a href="/productos/detalle/<%= producto.id %> " id="cajaProducto">
-                <div>
-                    <div class="imagen-producto">
-                        <img id="imagenes" src="/images/products/<%= producto.imagen %>"> </img>
+        <h2 class="titulo-listado">Vibradores</h2>
+        <section class="total-productos-listado">
+            <% for(let producto of todosLosProductos) {%> 
+                <% if(producto.id_categoria == 1) {%> 
+            <a href="/productos/detalle/<%= producto.id%>" id="anchor-listado">
+                <div class="cajaProductoListado">
+                    <div class="imagen-producto-listado">
+                        <img id="imagenes-listado" src="/images/products/<%= producto.imagen %>"></img>
                     </div>
-                    <div class="textoProductos">
-                        <p class="precios">$<%= producto.precio %> </p>
-                        <p class="descuento"><%= producto.descuento %> % off</p>
-                        <p class="descrip"><%= producto.nombre %> </p>
+                    <div class="textoProductos-listado">
+                        <p class="precios-listado">$<%= producto.precio%></p>
+                        <p class="descuento-listado"><%= producto.descuento%>%</p>
+                        <p class="descripcion-listado"><%= producto.nombre%></p>
                     </div>
                 </div>
             </a>
-        </section>
+            <% } %> 
         <% } %> 
+        </section>
+        <h2 class="titulo-listado">Cremas</h2>
+        <section class="total-productos-listado">
+            <% for(let producto of todosLosProductos) {%> 
+                <% if(producto.id_categoria == 2) {%> 
+            <a href="/productos/detalle/<%= producto.id%>" id="anchor-listado">
+                <div class="cajaProductoListado">
+                    <div class="imagen-producto-listado">
+                        <img id="imagenes-listado" src="/images/products/<%= producto.imagen %>"></img>
+                    </div>
+                    <div class="textoProductos-listado">
+                        <p class="precios-listado">$<%= producto.precio%></p>
+                        <p class="descuento-listado"><%= producto.descuento%>%</p>
+                        <p class="descripcion-listado"><%= producto.nombre%></p>
+                    </div>
+                </div>
+            </a>
+            <% } %> 
+        <% } %> 
+        </section>
+        <h2 class="titulo-listado">Accesorios</h2>
+        <section class="total-productos-listado">
+            <% for(let producto of todosLosProductos) {%> 
+                <% if(producto.id_categoria == 3) {%> 
+            <a href="/productos/detalle/<%= producto.id%>" id="anchor-listado">
+                <div class="cajaProductoListado">
+                    <div class="imagen-producto-listado">
+                        <img id="imagenes-listado" src="/images/products/<%= producto.imagen %>"></img>
+                    </div>
+                    <div class="textoProductos-listado">
+                        <p class="precios-listado">$<%= producto.precio%></p>
+                        <p class="descuento-listado"><%= producto.descuento%>%</p>
+                        <p class="descripcion-listado"><%= producto.nombre%></p>
+                    </div>
+                </div>
+            </a>
+            <% } %> 
+        <% } %> 
+        </section>
+        <h2 class="titulo-listado">Prendas</h2>
+        <section class="total-productos-listado">
+            <% for(let producto of todosLosProductos) {%> 
+                <% if(producto.id_categoria == 4) {%> 
+            <a href="/productos/detalle/<%= producto.id%>" id="anchor-listado">
+                <div class="cajaProductoListado">
+                    <div class="imagen-producto-listado">
+                        <img id="imagenes-listado" src="/images/products/<%= producto.imagen %>"></img>
+                    </div>
+                    <div class="textoProductos-listado">
+                        <p class="precios-listado">$<%= producto.precio%></p>
+                        <p class="descuento-listado"><%= producto.descuento%>%</p>
+                        <p class="descripcion-listado"><%= producto.nombre%></p>
+                    </div>
+                </div>
+            </a>
+            <% } %> 
+        <% } %> 
+        </section>
         <%- include ('../partials/footer.ejs') %> 
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <script>
