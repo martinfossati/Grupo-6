@@ -2,13 +2,13 @@
 <html lang="en">
   <head>
     <%- include ('../partials/head.ejs') %>
-    <link rel="stylesheet" href="/css/detalle-producto.css">
+    <link rel="stylesheet" href="/css/styles.css">
     <title>Detalle producto</title>
 </head>
   <body>
   <%- include ('../partials/header.ejs') %>
     <main>
-      <section class="main-section">
+      <section class="main-detalle">
         <div class="imagen-principal-producto">
           <img src="/images/products/<%= productoDetalle.imagen %>" alt="">
         </div>
@@ -17,10 +17,9 @@
             <h3> <%= productoDetalle.nombre %>  </h3>
           </div>
           <div class="etiquetas-producto">
-            <span id="descuento"> <%= productoDetalle.descuento %> % OFF </span>
-            <!-- <span id="mas-vendido"> MÁS VENDIDO </span> -->
+            <span class="descuento-producto"> <%= productoDetalle.descuento %> % OFF </span>
           </div>
-          <h4 class="precio"> $<%= productoDetalle.precio %> </h4>
+          <h4 class="precio-producto"> $<%= productoDetalle.precio %> </h4>
           <p> <i class="fas fa-truck"></i>  Envíos a todo el país </p>
           <div class="opciones-producto">
             <form action="" method="">
@@ -38,7 +37,7 @@
               </select>
             </form>
           </div>
-          <div class="boton-de-compra">
+          <div class="boton-compra-producto">
             <button type="submit"> AGREGAR AL CARRITO </button>
           </div>
           <div class="descripcion-producto">
@@ -73,19 +72,8 @@
             </form>
           </div>
         </div>
-        <div class="imagenes-inferiores">
-          <div class="img-infer">
-            <img src="/images/juguete-silicona-3.jpg" alt="">
-          </div>
-          <div class="img-infer">
-            <img src="/images/juguete-silicona-4.jpg" alt="">
-          </div>
-          <div class="img-infer">
-            <img src="/images/juguete-silicona-1.jpg" alt="">
-          </div>
-        </div>
       </section>
-      <div id="linea"></div>
+      <div id="linea-detalle"></div>
       <h4 id="texto-productos-similares"> PRODUCTOS SIMILARES </h4>
       <section class="productos-similares">
         <div class="productos">
@@ -113,7 +101,6 @@
           </div>
         </div>
       </section>
-
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
     <%- include ('../partials/footer.ejs') %>

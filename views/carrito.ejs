@@ -3,16 +3,14 @@
     <head>
         <%- include ('./partials/head.ejs') %>
         <title>Carrito de Compras</title>
-        <link rel="stylesheet" href="/css/carrito.css">  
+        <link rel="stylesheet" href="/css/styles.css">  
     </head>
 <body id="fondo">
     <%- include ('./partials/header.ejs') %>
-        
-        <h2> Carrito de Compras </h2>
-        
+        <h2 class="titulo-carrito"> Carrito de Compras </h2>
         <main class="main-cart">
-            <Section class="detalle-compra">
-                <h3> Detalle de tu compra </h3>
+            <section class="section-carrito detalle">
+                <h3 class="titulo-carrito"> Detalle de tu compra </h3>
                 <div class="detalle-productos">
                     <table class="productosCarrito" style="margin: 0 auto;">
                         <tr>
@@ -63,9 +61,8 @@
                     </table>
                 </div>
             </section>
-
-            <section class="resumen-compra">
-                <h3> Resumen de tu compra </h3>
+            <section class="section-carrito resumen">
+                <h3 class="titulo-carrito"> Resumen de tu compra </h3>
                 <br> </br>
                     <table class="resumenCarrito" style="margin: 0 auto;">
                         <tr>
@@ -90,7 +87,7 @@
                         </tr>
                     </table>
                     <br> </br>
-                    <div class='botones'>
+                    <div class='botones-carrito'>
                         <a class="btn btn-primary" href="/" id="botonContinuar" role="button">Continuar Comprando</a>
                         <a class="btn btn-primary" href="/" id="botonFinalizar" role="button">Finalizar Compra</a>
                     </div>

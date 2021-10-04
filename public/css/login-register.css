@@ -311,22 +311,23 @@ header{
 /* REGISTER */
 
 .main-register{
-    background-image: url(../images/mainImages/paredLadrillo.jpg);
+    background-image: url(../images/mainImages/paredLadrillo2.jpg);
     background-size: cover;
     background-repeat: no-repeat;
-    height: 160vh;
+    height: 110vh;
 }
 .capa{
     height: 60px;
 }
 .formulario-register {
     margin: auto;
-    overflow: hidden;
-    width: 60%;
+    height: auto;
+    width: 55vw;
     border-radius: 10px;
     border: 1px solid white;
     padding: 40px 50px;
-    backdrop-filter: blur(6px);
+    backdrop-filter: blur(4px);
+    box-shadow: 0px 0px 15px rgb(255, 2, 192);
 }
 h2{
     color: #FFFFFF;
@@ -336,7 +337,7 @@ h2{
 .form-input {
     display: block;
     width: 100%;
-    height: 40px;
+    height: 35px;
     font-size: 16px;
     border-radius: 8px;
     border: solid 1px black;
@@ -354,29 +355,39 @@ h2{
 }
 .form-label {
     color: #FFFFFF;
-    font-size: 24px;
+    font-size: 18px;
     font-weight: 600;
-    width: 400px;
-    margin-top: 30px;
+    width: 200px;
+    margin-top: 24px;
 }
 #lbl-nombre{
     margin-top: 0;
 }
-
+.register-last-box{
+    display: flex;
+    margin-bottom: 30px;
+}
+#fechaNacimiento{
+    width: 60%;
+    display: inline;
+}
 #avatar {
     border: none;
-    margin-top: 8px;
     padding: 1px 0px 0px 2px;
-    width: 44%;
+    width: 100%;
 }
-
+#avatar-fechaNac label{
+    margin-top: 28px;
+}
+#alert-fecha{
+    position: absolute;
+}
 .boton-register{
     text-align: center;
 }
-
 .boton-register button {
-    padding: 10px 50px;
-    margin-top: 10px;
+    padding: 8px 40px;
+    margin-top: 15px;
     border: none;
     border-radius: 10px;
     font-weight: 700;
