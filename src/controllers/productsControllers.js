@@ -1,5 +1,6 @@
 const db = require('../database/models')
 const Op = db.Sequelize.Op
+const { validationResult } = require('express-validator');
 
 const controladorProducts = 
 {
@@ -35,6 +36,8 @@ const controladorProducts =
     },
     productoModificado: async (req, res) => {
 
+        let resultValidationEdicion = validationResult(req);
+
         let idURL = req.params.id;
         let categorias = await db.Categorias.findOne({
             where: {nombre: req.body.categoria}
@@ -53,10 +56,18 @@ const controladorProducts =
             where: {id: idURL}
         });
 
+        if(resultValidationEdicion.errors.length > 0){
+            return res.render('products/edicionProducto', {
+                errors: resultValidationEdicion.mapped()
+            })
+        }
+
         res.redirect('/');
     },
     almacenamientoProducto: async (req, res) => {
 
+        let resultValidation = validationResult(req);
+        
 		let nombreImagen = req.file.filename;
         let categorias = await db.Categorias.findOne({
             where: {nombre: req.body.categoria}
@@ -73,6 +84,12 @@ const controladorProducts =
 		}).then(() => {
             res.redirect('/');
         });
+
+        if(resultValidation.errors.length > 0){
+            return res.render('products/creacionProducto', {
+                errors: resultValidation.mapped()
+            })
+        }
     },
     eliminacionProducto: (req, res) => {
 

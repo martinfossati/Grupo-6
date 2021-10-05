@@ -45,38 +45,39 @@ const controladorUsers =
         res.render('users/register')
     },
     registerUser: (req, res) => {
-        const resultValidation = validationResult(req);
-
-        if(resultValidation.errors.length > 0) {
-            return res.render('users/register', {
-                errors: resultValidation.mapped(),
-                oldData: req.body
-            });
-        };
-
-        let userInDB = User.findByField('email', req.body.email);
-
-        if(userInDB) {
-            return res.render('users/register', {
-                errors: {
-                    email: {
-                        msg: 'Este email ya esta registrado'
-                    }
-                },
-                oldData: req.body
-            });
-        }
-
-        db.Usuarios.create({
-            nombre: req.body.nombre,
-            apellido: req.body.apellido,
-            fecha_nacimiento: req.body.fechaNacimiento,
-            email: req.body.email,
-            password: bcryptjs.hashSync(req.body.password, 10),
-            avatar: req.file.filename
-        });
-
-        return res.render('users/login');
+        let errors = validationResult(req);
+        
+        db.Usuarios.findOne({
+            where: {
+                email: req.body.email
+            }
+        }).then(usuario => {
+            if(usuario){
+                return res.render('users/register', {
+                    errors: {
+                        email: {
+                            msg: 'Este email ya está registrado'
+                        }
+                    },
+                    oldData: req.body
+                })
+            } else {
+                if(errors.isEmpty()){
+                    db.Usuarios.create({
+                        nombre: req.body.nombre,
+                        apellido: req.body.apellido,
+                        fecha_nacimiento: req.body.fechaNacimiento,
+                        email: req.body.email,
+                        password: bcryptjs.hashSync(req.body.password, 10),
+                        avatar: req.file.filename
+                    });
+                }
+                return res.render('users/register', {
+                    errors: errors.mapped(),
+                    oldData: req.body
+                });
+            }
+        })
     },
     infoUser: (req, res) => {
         res.render('users/infoUser', {
