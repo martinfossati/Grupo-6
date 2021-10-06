@@ -5,10 +5,10 @@
         <title>Edicion</title>
         <link rel="stylesheet" href="/css/styles.css">
     </head>
-<body>
+<body class="body-form">
     <div class="main-header-top-bar-form">
         <a href="/" id="logo">
-          <span class="main-header-titulo-form"> fansclub. </span>
+          <span class="main-header-titulo-form" style="color: white;"> fansclub. </span>
         </a>
     </div>
     <div class="formulario">
@@ -26,22 +26,20 @@
                         </div> 
                     <% } %> 
                 </div>
-                <div class="create-form">
-                    <label for="precio" class="form-label-product">Precio:</label>
-					<input value="<%=productoEncontrado.precio%>" type="number" id="precio" name="precio" placeholder="Ej: $2500" class="form-input-product">
-                    <% if (locals.errors && errors.precio) { %>
-                        <div class="text-alert">
-                            <i class="fas fa-exclamation-circle"></i><%= errors.precio.msg %><i class="fas fa-exclamation-circle"></i>
-                        </div> 
-                    <% } %> 
-                </div>
-                <div class="create-form">
-                    <label for="descuento" class="form-label-product">Descuento:</label>
-					<input value="<%=productoEncontrado.descuento%>" type="number" id="descuento" name="descuento" placeholder="Ej: 10" class="form-input-product">
-                </div>
-                <div class="create-form">
-                    <label for="imagen" class="form-label-product">Imagen del producto:</label>
-                    <input type="file" id="imagen-form" name="imagen" class="form-input-product">
+                <div class="form-box">
+                    <div class="create-form precio-descuento">
+                        <label for="precio" class="form-label-product">Precio:</label>
+                        <input value="<%=productoEncontrado.precio%>" type="number" id="precio" name="precio" placeholder="Ej: $2500" class="form-input-product">
+                        <% if (locals.errors && errors.precio) { %>
+                            <div class="text-alert">
+                                <i class="fas fa-exclamation-circle"></i><%= errors.precio.msg %><i class="fas fa-exclamation-circle"></i>
+                            </div> 
+                        <% } %> 
+                    </div>
+                    <div class="create-form precio-descuento">
+                        <label for="descuento" class="form-label-product">Descuento:</label>
+                        <input value="<%=productoEncontrado.descuento%>" type="number" id="descuento" name="descuento" placeholder="Ej: 10" class="form-input-product">
+                    </div>
                 </div>
                 <div class="create-form">
                     <label for="descripcion" class="form-label-product">Descripcion:</label>
@@ -61,16 +59,22 @@
                         </div> 
                     <% } %> 
                 </div>
-                <div class="create-form">
-                <label for="categoria" class="form-label-product">Categoria:</label> 
-					<select name="categoria" aria-placeholder="Seleccionar">
-                        <option value="Vibradores">Vibradores</option>
-                        <option value="Cremas">Cremas</option>
-                        <option value="Accesorios">Accesorios</option>
-                        <option value="Prendas">Prendas</option>
-                    </select>
+                <div class="form-box">
+                    <div class="create-form categoria-producto">
+                        <label for="categoria" class="form-label-product">Categoria:</label><br> 
+                        <select name="categoria" aria-placeholder="Seleccionar" class="select-form" id="categoria">
+                            <option value="Vibradores">Vibradores</option>
+                            <option value="Cremas">Cremas</option>
+                            <option value="Accesorios">Accesorios</option>
+                            <option value="Prendas">Prendas</option>
+                        </select>
+                    </div>
+                    <div class="create-form">
+                        <label for="imagen" class="form-label-product">Imagen del producto:</label>
+                        <input type="file" id="imagen" name="imagen" class="form-input-product" style="color: white;">
+                    </div>
                 </div>
-                <div class="create-form" id="boton-form">
+                <div class="create-form" id="boton-form" style="text-align: center;">
                     <button type="submit" class="button-create-form"> GUARDAR </button>
                 </div>
             </form>
