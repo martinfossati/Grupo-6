@@ -16,10 +16,11 @@
             <div>
                 <h2 class="titulo-form-product">Formulario de edicion de productos</h2>
             </div>
-            <form action="/productos/edicion/<%=productoEncontrado.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
+            <form action="/productos/edicion/<%=productoEncontrado.id%>?_method=PUT" method="POST" id="formEditProduct" enctype="multipart/form-data">
                 <div class="create-form">
                     <label for="nombreProducto" class="form-label-product">Nombre del producto:</label>
 					<input value="<%=productoEncontrado.nombre%>" type="text" id="nombreProducto" name="nombreProducto" placeholder="Ej: Vibrador XXL" class="form-input-product">
+                    <div id="nombreError" class="text-error"></div>
                     <% if (locals.errors && errors.nombreProducto) { %>
                         <div class="text-alert">
                             <i class="fas fa-exclamation-circle"></i><%= errors.nombreProducto.msg %><i class="fas fa-exclamation-circle"></i>
@@ -30,6 +31,7 @@
                     <div class="create-form precio-descuento">
                         <label for="precio" class="form-label-product">Precio:</label>
                         <input value="<%=productoEncontrado.precio%>" type="number" id="precio" name="precio" placeholder="Ej: $2500" class="form-input-product">
+                        <div id="precioError" class="text-error"></div>
                         <% if (locals.errors && errors.precio) { %>
                             <div class="text-alert">
                                 <i class="fas fa-exclamation-circle"></i><%= errors.precio.msg %><i class="fas fa-exclamation-circle"></i>
@@ -44,6 +46,7 @@
                 <div class="create-form">
                     <label for="descripcion" class="form-label-product">Descripcion:</label>
 					<textarea name="descripcion" id="descripcion" class="form-input-product"><%=productoEncontrado.descripcion%></textarea>
+                    <div id="descripError" class="text-error"></div>
                     <% if (locals.errors && errors.descripcion) { %>
                         <div class="text-alert">
                             <i class="fas fa-exclamation-circle"></i><%= errors.descripcion.msg %><i class="fas fa-exclamation-circle"></i>
@@ -53,6 +56,7 @@
                 <div class="create-form">
                     <label for="modoDeUso" class="form-label-product">Modo de uso:</label>
 					<textarea name="modoDeUso" id="modoDeUso" class="form-input-product"><%=productoEncontrado.modo_de_uso%></textarea>
+                    <div id="usoError" class="text-error"></div>
                     <% if (locals.errors && errors.modoDeUso) { %>
                         <div class="text-alert">
                             <i class="fas fa-exclamation-circle"></i><%= errors.modoDeUso.msg %><i class="fas fa-exclamation-circle"></i>
@@ -72,6 +76,7 @@
                     <div class="create-form">
                         <label for="imagen" class="form-label-product">Imagen del producto:</label>
                         <input type="file" id="imagen" name="imagen" class="form-input-product" style="color: white;">
+                        <div id="imagenError" class="text-error"></div>
                     </div>
                 </div>
                 <div class="create-form" id="boton-form" style="text-align: center;">
@@ -80,5 +85,6 @@
             </form>
         </div>
     </div>
+    <script src="/js/productEditValidations.js"></script>
 </body>
 </html>
