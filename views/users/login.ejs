@@ -44,10 +44,16 @@
                 </div>
                 <div class="align-self-center w-100 px-lg-5 py-lg-4 p-4">
                 <h1 class="font-weight-bold mb-4">Bienvenido de vuelta</h1>
-                <form class="mb-5" action="/login" method="POST">
+                <form class="mb-5" action="/login" method="POST" id="formLogin">
                     <div class="mb-4">
                       <label for="exampleInputEmail1" class="form-label font-weight-bold">Email</label>
-                      <input type="email" name="email" class="form-control bg-dark-x border-0" id="exampleInputEmail1" placeholder="Ingresa tu email" aria-describedby="emailHelp">
+                      <input type="email" name="email" class="form-control bg-dark-x border-0" id="emailLogin" placeholder="Ingresa tu email" aria-describedby="emailHelp">
+                      <div id="emailErrorLogin" class="text-error"></div>
+                      <% if (locals.errors && errors.email) { %>
+                        <div class="text-alert">
+                            <i class="fas fa-exclamation-circle"></i><%= errors.email.msg %><i class="fas fa-exclamation-circle"></i>
+                        </div> 
+                      <% } %> 
                     </div>
                     <div class="mb-4">
                       <label for="exampleInputPassword1" class="form-label font-weight-bold">Contraseña</label>
@@ -74,6 +80,7 @@
       </section>
     <!-- Optional JavaScript -->
     <!-- Popper.js first, then Bootstrap JS -->
+    <script src="/js/loginValidations.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
   </body>

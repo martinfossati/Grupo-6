@@ -1,15 +1,14 @@
 window.addEventListener('load', () => {
     /**** ELEMENTOS ****/
-    let formularioRegister = document.getElementById('formRegister');
-    var nombreError = document.getElementById('nombreError')
-    var apellidoError = document.getElementById('apellidoError')
-    var emailError = document.getElementById('emailError')
-    var passwordError = document.getElementById('passwordError')
-    var fechaError = document.getElementById('fechaError')
+    var formularioRegister = document.getElementById('formRegister');
+    var nombreError = document.getElementById('nombreError');
+    var apellidoError = document.getElementById('apellidoError');
+    var emailError = document.getElementById('emailError');
+    var passwordError = document.getElementById('passwordError');
+    var fechaError = document.getElementById('fechaError');
     
     formularioRegister.addEventListener('submit', (event) => {
-        event.preventDefault(event);
-        let texto = document.querySelector('.text-error')
+        event.preventDefault();
         let errores = {};
 
         let nombreRegister = document.getElementById('nombre');
@@ -42,6 +41,6 @@ window.addEventListener('load', () => {
         } else {
             formularioRegister.submit();
         }
-
+        
     })
 })

@@ -16,7 +16,7 @@
                 <div>
                     <h2 class="titulo-form-product">Formulario de creacion de productos</h2>
                 </div>
-                <form action="/productos/creacion" method="POST" enctype="multipart/form-data">
+                <form action="/productos/creacion" method="POST" enctype="multipart/form-data" id="formUploadProduct">
                     <div class="create-form">
                         <label for="nombreProducto" class="form-label-product">Nombre del producto:</label>
                         <input type="text" id="nombreProducto" name="nombreProducto" placeholder="Ej: Vibrador XL" class="form-input-product">
@@ -80,5 +80,6 @@
                 </form>
             </div>
         </div>
+        <script src="/js/productUploadValidations.js"></script>
     </body>
 </html>
