@@ -9,7 +9,7 @@ window.addEventListener('load', () => {
 
         let emailLogin = document.getElementById('emailLogin');
         if(emailLogin.value.length < 1){
-            errors.email = "Revisa que la información sea correcta"
+            errores.email = "Revisa que la información sea correcta"
         }
         if(Object.keys(errores).length > 0){
             emailErrorLogin.innerText = (errores.email) ? errores.email : "";

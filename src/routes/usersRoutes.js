@@ -3,13 +3,13 @@ const express = require('express');
 const router = express.Router();
 const { body } = require('express-validator');
 
+/***** CONTROLLER REQUIRE *****/
+const usersControllers = require('./../controllers/usersControllers');
+
 /***** MIDDLEWARES *****/
 const uploadFile = require('../middlewares/multerUserMiddleware');
 const guestMiddleware = require('../middlewares/guestMiddleware');
 const authMiddleware = require('../middlewares/authMiddleware');
-
-/***** CONTROLLER REQUIRE *****/
-const usersControllers = require('./../controllers/usersControllers');
 
 /***** VALIDACIONES *****/
 const validations = [

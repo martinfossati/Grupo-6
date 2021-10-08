@@ -324,6 +324,91 @@ header{
     margin-top: 30px;
     font-size: 34px;
 }
+.home-section{
+    display: grid;
+    height: 80vh;
+    max-width: 90%;
+    margin: auto;
+    margin-top: 70px;
+    margin-bottom: 50px;
+    grid-template-columns: 0.8fr 0.9fr 0.9fr;
+    grid-template-rows: 0.7fr 0.7fr;
+    grid-template-areas:
+    "sidebar content1 content1"
+    "sidebar content2 content2";
+    grid-column-gap: 0.3%;
+    grid-row-gap: 0.5%;
+}
+.sidebar{
+    grid-area:sidebar;
+}
+.content1{
+    grid-area: content1;
+}
+.content2{
+    grid-area: content2;
+}
+.sidebar, .content1, .content2 {
+    overflow: hidden;
+    position: relative;
+}
+.home-section-img{
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+    transition: 500ms ease;
+}
+.sidebar:hover .home-section-img, .content1:hover .home-section-img, .content2:hover .home-section-img{
+    transform: scale(1.1);
+    filter: brightness(65%);
+}
+#h2-lenceria{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+    z-index: 5;
+    color: white;
+    font-family: 'Bebas Neue', cursive;
+    letter-spacing: 1mm;
+    font-size: 60px;
+    margin: 0;
+}
+.h2-home-section{
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+    z-index: 5;
+    color: white;
+    font-family: 'Bebas Neue', cursive;
+    letter-spacing: 1mm;
+    font-size: 60px;
+    margin: 0;
+}
+.btn-home-section{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+    z-index: 5;
+    color: white;
+    font-family: 'Bebas Neue', cursive;
+    letter-spacing: 0.5mm;
+    font-size: 18px;
+    border: 1px solid;
+    padding: 7px;
+    margin: 0;
+    transition: 500ms ease;
+    backdrop-filter: blur(3px);
+}
+.btn-home-section:hover {
+    background-color: #ebebeb;
+    color: black;
+    border: 1px solid white;
+    box-shadow: 0px 0px 15px white;
+}
 .owl-stage {
     padding-top: 5px;
     padding-bottom: 5px;
@@ -916,15 +1001,15 @@ input [type="submit"]:hover {
     border: solid 1px black;
     padding: 0 15px;
 }
-.text-alert {
-    margin-top: 8px;
-    color: white;
-    font-size: 16px;
-}
 .text-error {
     color: red;
     font-size: 16px;
     margin-top: 8px;
+}
+.text-alert {
+    margin-top: 8px;
+    color: white;
+    font-size: 16px;
 }
 .text-alert i {
     margin-left: 5px;

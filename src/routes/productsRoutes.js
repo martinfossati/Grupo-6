@@ -1,25 +1,13 @@
 /***** REQUIRES *****/
 const express = require('express');
 const router = express.Router();
-const multer = require('multer');
-const path = require('path');
 const { body } = require('express-validator');
 
 /***** CONTROLLER REQUIRE *****/
 const productsControllers = require('./../controllers/productsControllers');
 
-/******** Multer ********/
-const multerDiskStorage = multer.diskStorage({
-    destination: function(req, file, cb) {      
-     cb(null, path.join(__dirname,'../../public/images/products'));   
-    },
-    filename: function(req, file, cb) {         
-     let imageName = 'imgProduct' + Date.now() + path.extname(file.originalname);   // milisegundos y extensión de archivo original
-     cb(null, imageName);         
-    }
-});
-
-const uploadFile = multer({ storage: multerDiskStorage });
+/****** MIDDLEWARES ******/
+const uploadFile = require('../middlewares/multerProductMiddleware');
 
 /****** VALIDACIONES ******/
 const validations = [
@@ -28,7 +16,6 @@ const validations = [
     body('descripcion').notEmpty().withMessage('Este campo no puede quedar vacio'),
     body('modoDeUso').notEmpty().withMessage('Este campo no puede quedar vacio')
 ];
-
 
 /***** DETALLE PRODUCTO *****/
 router.get('/detalle/:id', productsControllers.detalleProducto);
@@ -46,8 +33,6 @@ router.delete('/:id', productsControllers.eliminacionProducto);
 
 /***** TODOS LOS PRODUCTOS *****/
 router.get('/listado', productsControllers.listadoProductos);
-
-
 
 
 module.exports = router;
