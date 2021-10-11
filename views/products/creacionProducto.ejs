@@ -20,6 +20,7 @@
                     <div class="create-form">
                         <label for="nombreProducto" class="form-label-product">Nombre del producto:</label>
                         <input type="text" id="nombreProducto" name="nombreProducto" placeholder="Ej: Vibrador XL" class="form-input-product">
+                        <div class="text-error" id="nombreError"></div>
                         <% if (locals.errors && errors.nombreProducto) { %>
                             <div class="text-alert">
                                 <i class="fas fa-exclamation-circle"></i><%= errors.nombreProducto.msg %><i class="fas fa-exclamation-circle"></i>
@@ -30,6 +31,7 @@
                         <div class="create-form precio-descuento">
                             <label for="precio" class="form-label-product">Precio:</label>
                             <input type="number" id="precio" name="precio" placeholder="Ej: $2500" class="form-input-product">
+                            <div class="text-error" id="precioError"></div>
                             <% if (locals.errors && errors.precio) { %>
                                 <div class="text-alert">
                                     <i class="fas fa-exclamation-circle"></i><%= errors.precio.msg %><i class="fas fa-exclamation-circle"></i>
@@ -44,6 +46,7 @@
                     <div class="create-form">
                         <label for="descripcion" class="form-label-product">Descripción:</label>
                         <textarea name="descripcion" id="descripcion" class="form-input-product"></textarea>
+                        <div class="text-error" id="descripError"></div>
                         <% if (locals.errors && errors.descripcion) { %>
                             <div class="text-alert">
                                 <i class="fas fa-exclamation-circle"></i><%= errors.descripcion.msg %><i class="fas fa-exclamation-circle"></i>
@@ -53,6 +56,7 @@
                     <div class="create-form">
                         <label for="modoDeUso" class="form-label-product">Modo de uso:</label>
                         <textarea name="modoDeUso" id="modoDeUso" class="form-input-product"></textarea>
+                        <div class="text-error" id="usoError"></div>
                         <% if (locals.errors && errors.modoDeUso) { %>
                             <div class="text-alert">
                                 <i class="fas fa-exclamation-circle"></i><%= errors.modoDeUso.msg %><i class="fas fa-exclamation-circle"></i>
@@ -72,6 +76,7 @@
                         <div class="create-form">
                             <label for="imagen" class="form-label-product">Imagen del producto:</label>
                             <input type="file" id="imagen" name="imagen" class="form-input-product" style="color: white;">
+                            <div class="text-error" id="imagenError"></div>
                         </div>
                     </div>
                     <div class="create-form" style="text-align: center;">

@@ -14,7 +14,7 @@
     <div class="formulario">
         <div class="main-form-product">
             <div>
-                <h2 class="titulo-form-product">Formulario de edicion de productos</h2>
+                <h2 class="titulo-form-product">Formulario de edición de productos</h2>
             </div>
             <form action="/productos/edicion/<%=productoEncontrado.id%>?_method=PUT" method="POST" id="formEditProduct" enctype="multipart/form-data">
                 <div class="create-form">
@@ -44,7 +44,7 @@
                     </div>
                 </div>
                 <div class="create-form">
-                    <label for="descripcion" class="form-label-product">Descripcion:</label>
+                    <label for="descripcion" class="form-label-product">Descripción:</label>
 					<textarea name="descripcion" id="descripcion" class="form-input-product"><%=productoEncontrado.descripcion%></textarea>
                     <div id="descripError" class="text-error"></div>
                     <% if (locals.errors && errors.descripcion) { %>
@@ -65,7 +65,7 @@
                 </div>
                 <div class="form-box">
                     <div class="create-form categoria-producto">
-                        <label for="categoria" class="form-label-product">Categoria:</label><br> 
+                        <label for="categoria" class="form-label-product">Categoría:</label><br> 
                         <select name="categoria" aria-placeholder="Seleccionar" class="select-form" id="categoria">
                             <option value="Vibradores">Vibradores</option>
                             <option value="Cremas">Cremas</option>
