@@ -38,6 +38,12 @@ const controladorProducts =
 
         let resultValidationEdicion = validationResult(req);
 
+        if(resultValidationEdicion.errors.length > 0){
+            return res.render('products/edicionProducto', {
+                errors: resultValidationEdicion.mapped()
+            })
+        }
+
         let idURL = req.params.id;
         let categorias = await db.Categorias.findOne({
             where: {nombre: req.body.categoria}
@@ -56,17 +62,18 @@ const controladorProducts =
             where: {id: idURL}
         });
 
-        if(resultValidationEdicion.errors.length > 0){
-            return res.render('products/edicionProducto', {
-                errors: resultValidationEdicion.mapped()
-            })
-        }
 
         res.redirect('/');
     },
     almacenamientoProducto: async (req, res) => {
 
         let resultValidation = validationResult(req);
+        
+        if(resultValidation.errors.length > 0){
+            return res.render('products/creacionProducto', {
+                errors: resultValidation.mapped()
+            })
+        }
         
 		let nombreImagen = req.file.filename;
         let categorias = await db.Categorias.findOne({
@@ -85,11 +92,6 @@ const controladorProducts =
             res.redirect('/');
         });
 
-        if(resultValidation.errors.length > 0){
-            return res.render('products/creacionProducto', {
-                errors: resultValidation.mapped()
-            })
-        }
     },
     eliminacionProducto: (req, res) => {
 

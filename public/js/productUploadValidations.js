@@ -1,4 +1,4 @@
-window.addEventListener('submit', () =>{
+window.addEventListener('load', () =>{
     /*** ELEMENTOS ***/
     var formUploadProduct = document.getElementById('formUploadProduct');
     var nombreError = document.getElementById('nombreError');

@@ -78,6 +78,7 @@ const controladorUsers =
                 });
             }
         })
+        return res.redirect('/login');
     },
     infoUser: (req, res) => {
         res.render('users/infoUser', {

@@ -77,6 +77,11 @@
                             <label for="imagen" class="form-label-product">Imagen del producto:</label>
                             <input type="file" id="imagen" name="imagen" class="form-input-product" style="color: white;">
                             <div class="text-error" id="imagenError"></div>
+                            <% if (locals.errors && locals.imagen) { %>
+                                <div class="text-alert">
+                                    <i class="fas fa-exclamation-circle"></i><%= errors.imagen %><i class="fas fa-exclamation-circle"></i>
+                                </div>
+                            <% } %>   
                         </div>
                     </div>
                     <div class="create-form" style="text-align: center;">
