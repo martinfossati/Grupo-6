@@ -75,8 +75,8 @@ header{
 /** FOOTER **/
 
 .pie{
-    background-color:#611269;
-    color: whitesmoke;
+    background-color:#F7F7F7;
+    color: #7e8187;
     display: flex;
     box-sizing: border-box;
     flex-direction: row;
@@ -200,7 +200,7 @@ header{
 .cont-menu{
     width: 100%;
     max-width: 250px;
-    background: white;
+    background:  #F7F7F7;
     height: 100vh;
     position: relative;
     transition: all 500ms ease;
