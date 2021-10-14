@@ -902,6 +902,28 @@ textarea.form-input-product {
 
 /** LOGIN **/
 
+.main-login{
+    background-image: url(../images/mainImages/paredLadrillo2.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 120vh;
+}
+
+.formulario-login {
+    margin: auto;
+    height: auto;
+    width: 55vw;
+    border-radius: 10px;
+    border: 1px solid white;
+    padding: 40px 50px;
+    backdrop-filter: blur(4px);
+    box-shadow: 0px 0px 15px rgb(255, 2, 192);
+}
+
+.texto-checkbox{
+    color: #FFFFFF;
+}
+
 input [type="submit"] {
     width: 100%;
     outline: none;
