@@ -10,16 +10,16 @@
     <main>
       <section class="main-detalle">
         <div class="imagen-principal-producto">
-          <img src="/images/products/<%= productoDetalle.imagen %>" alt="">
+          <img src="/images/products/<%= productoDetalle.imagen %>" alt="" id="img-carrito">
         </div>
         <div class="informacion-producto">
           <div class="nombre-producto">
-            <h3> <%= productoDetalle.nombre %>  </h3>
+            <h3 id="nombre-carrito"> <%= productoDetalle.nombre %> </h3>
           </div>
           <div class="etiquetas-producto">
             <span class="descuento-producto"> <%= productoDetalle.descuento %> % OFF </span>
           </div>
-          <h4 class="precio-producto"> $<%= productoDetalle.precio %> </h4>
+          <h4 class="precio-producto" id="precio-carrito"> $<%= productoDetalle.precio %> </h4>
           <p> <i class="fas fa-truck"></i>  Envíos a todo el país </p>
           <div class="opciones-producto">
             <form action="" method="">
@@ -38,7 +38,7 @@
             </form>
           </div>
           <div class="boton-compra-producto">
-            <button type="submit"> AGREGAR AL CARRITO </button>
+            <button type="submit" id="btn-carrito"> AGREGAR AL CARRITO </button>
           </div>
           <div class="descripcion-producto">
             <div class="accordion accordion-flush" id="accordionFlushExample">
@@ -110,5 +110,6 @@
           toggleMenu.classList.toggle('active')
       }
   </script>
+  <script src="/js/detalleProducto.js"></script>
 </body>
 </html>

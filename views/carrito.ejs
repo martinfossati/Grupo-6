@@ -16,12 +16,8 @@
                     <h5 class="precio-carrito">Precio</h5>
                     <h5 class="total-carrito">Total</h5>
                 </div>
-                <div class="items-carrito">
-                    <img src="/images/products/imgProduct1634236145220.jpg" alt="" class="imagen-carrito">
-                    <h5 class="nombre-carrito articulo">Vibrador XPRO</h5>
-                    <h5 class="precio-carrito articulo">$8000</h5>
-                    <h5 class="total-carrito articulo">$8000</h5>
-                    <i class="fas fa-trash borrar-item"></i>
+                <div class="seccion-items">
+                    
                 </div>
             </div>
             <div class="resumen-compra">
@@ -29,15 +25,15 @@
                 <div class="resumen-total">
                     <div class="total-productos">
                         <span>Total:</span>
-                        <span class="a-pagar">$8000</span>
+                        <span class="a-pagar" id="total-items"></span>
                     </div>
                     <div class="envio-productos">
-                        <span>Envío:</span>
-                        <span class="a-pagar">$1000</span>
+                        <span>Envío fijo:</span>
+                        <span class="a-pagar" id="envio-items">$1000</span>
                     </div>
                     <div class="total-pago">
                         <span>Total con envío:</span>
-                        <span class="a-pagar">$9000</span>
+                        <span class="a-pagar" id="total-con-envio"></span>
                     </div>
                     <div class="codigo-promocion">
                         <label for="promocion">Codigo:</label>
@@ -56,5 +52,6 @@
                 toggleMenu.classList.toggle('active')
             }
         </script>
+        <script src="/js/carrito.js"></script>
     </body>
 </html>
