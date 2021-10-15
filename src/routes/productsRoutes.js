@@ -25,21 +25,21 @@ const validations = [
 ];
 
 /***** DETALLE PRODUCTO *****/
-router.get('/detalle/:id', productsControllers.detalleProducto);
+router.get('/detalle/:id', productsControllers.productDetail);
 
 /***** CREACION PRODUCTO *****/
-router.get('/creacion', productsControllers.creacionProducto);
-router.post('/creacion', uploadFile.single('imagen'), validations, productsControllers.almacenamientoProducto);
+router.get('/creacion', productsControllers.createProduct);
+router.post('/creacion', uploadFile.single('imagen'), validations, productsControllers.storeProduct);
 
 /***** EDICION PRODUCTO *****/
-router.get('/edicion/:id', productsControllers.edicionProducto);
-router.put('/edicion/:id', uploadFile.single('imagen'), validations, productsControllers.productoModificado);
+router.get('/edicion/:id', productsControllers.editProduct);
+router.put('/edicion/:id', uploadFile.single('imagen'), validations, productsControllers.updateProduct);
 
 /***** ELIMINACION *****/
-router.delete('/:id', productsControllers.eliminacionProducto);
+router.delete('/:id', productsControllers.deleteProduct);
 
 /***** TODOS LOS PRODUCTOS *****/
-router.get('/listado', productsControllers.listadoProductos);
+router.get('/listado', productsControllers.productList);
 
 
 module.exports = router;

@@ -17,12 +17,12 @@ const validations = [
     body('apellido').notEmpty().withMessage('Debes escribir tu apellido'),
     body('fechaNacimiento').notEmpty().withMessage('Debes poner tu fecha de nacimiento'),
     body('email').isEmail().withMessage('Debes poner un email valido'),
-    body('password').isLength({min: 3}).withMessage('Tu contraseña debe tener mas de 3 caracteres')
+    body('password').isLength({min: 3}).withMessage('Tu contraseña debe tener como minimo 8 caracteres')
 ];
 
 /***** REGISTRACION USUARIO *****/
 router.get('/register', guestMiddleware, usersControllers.register);
-router.post('/register', uploadFile.single('avatar'), validations, usersControllers.registerUser);
+router.post('/register', uploadFile.single('avatar'), validations, usersControllers.processRegister);
 
 /***** PROCESO LOGIN USUARIO *****/
 router.get('/login', guestMiddleware, usersControllers.login);

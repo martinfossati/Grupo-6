@@ -47,7 +47,7 @@
                 <form class="mb-5" action="/login" method="POST" id="formLogin">
                     <div class="mb-4">
                       <label for="exampleInputEmail1" class="form-label font-weight-bold">Email</label>
-                      <input type="email" name="email" class="form-control bg-dark-x border-0" id="emailLogin" placeholder="Ingresa tu email" aria-describedby="emailHelp">
+                      <input type="email" name="email" class="form-control bg-dark-x border-0" id="emailLogin" value="<%= locals.oldData ? oldData.email : null %>" placeholder="Ingresa tu email" aria-describedby="emailHelp">
                       <div id="emailErrorLogin" class="text-error"></div>
                       <% if (locals.errors && errors.email) { %>
                         <div class="text-alert">
