@@ -75,8 +75,8 @@ header{
 /** FOOTER **/
 
 .pie{
-    background-color:#611269;
-    color: whitesmoke;
+    background-color:#F7F7F7;
+    color: #7e8187;
     display: flex;
     box-sizing: border-box;
     flex-direction: row;
@@ -200,7 +200,7 @@ header{
 .cont-menu{
     width: 100%;
     max-width: 250px;
-    background: white;
+    background:  #F7F7F7;
     height: 100vh;
     position: relative;
     transition: all 500ms ease;
@@ -982,6 +982,28 @@ textarea.form-input-product {
 }
 
 /** LOGIN **/
+
+.main-login{
+    background-image: url(../images/mainImages/paredLadrillo2.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 120vh;
+}
+
+.formulario-login {
+    margin: auto;
+    height: auto;
+    width: 55vw;
+    border-radius: 10px;
+    border: 1px solid white;
+    padding: 40px 50px;
+    backdrop-filter: blur(4px);
+    box-shadow: 0px 0px 15px rgb(255, 2, 192);
+}
+
+.texto-checkbox{
+    color: #FFFFFF;
+}
 
 input [type="submit"] {
     width: 100%;
