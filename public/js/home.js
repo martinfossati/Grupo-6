@@ -13,12 +13,14 @@ slider1.owlCarousel({
         0:{
             items:1,
             nav: false,
-            dots:true
+            dots:true,
+            autoplay: false
         },
         600:{
             items:2,
             nav: false,
-            dots:true
+            dots:true,
+            autoplay: false
         },
         1024:{
             items:3
@@ -44,12 +46,14 @@ slider2.owlCarousel({
         0:{
             items:1,
             nav: false,
-            dots:true
+            dots:true,
+            autoplay: false
         },
         600:{
             items:2,
             nav: false,
-            dots:true
+            dots:true,
+            autoplay: false
         },
         1024:{
             items:3
