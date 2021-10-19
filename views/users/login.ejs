@@ -14,7 +14,11 @@
                 <form action="/login" method="POST" id="formLogin">
                     <div class="mb-4">
                       <label for="email" class="form-label">Email:</label>
+<<<<<<< HEAD
                     <input type="email" id="emailLogin" name="email" class="form-input" placeholder="Ingresa tu email">
+=======
+                      <input type="email" id="email" name="email" class="form-input" placeholder="Ingresa tu email" value="<%= locals.oldData ? oldData.email : null %>">
+>>>>>>> fdcf7cb4855770545048154e8e24ec500cdb9bb9
                       <div id="emailErrorLogin" class="text-error"></div>
                       <% if (locals.errors && errors.email) { %>
                         <div class="text-alert">

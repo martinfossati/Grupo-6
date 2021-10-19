@@ -1,7 +1,6 @@
 const bcryptjs = require('bcryptjs');
 const { validationResult } = require('express-validator');
 const db = require('../database/models');
-const Op = db.Sequelize.Op;
 
 const controladorUsers = 
 {
@@ -22,30 +21,33 @@ const controladorUsers =
                     if(req.body.rememberUser) {
                         res.cookie('userEmail', req.body.email)
                     }
-                    return res.redirect('/infoUser')
+                    res.redirect('/infoUser')
+                } else {
+                    res.render('users/login', {
+                        errors: {
+                            email: {
+                                msg: 'El email o la contraseña no coinciden'
+                            }
+                        },
+                        oldData: req.body
+                    });
                 }
-                return res.render('users/login', {
-                    errors: {
-                        email: {
-                            msg: 'Credenciales inválidas'
-                        }
-                    }
-                });
             }
-            return res.render('users/login', {
+            res.render('users/login', {
                 errors: {
                     email: {
                         msg: 'Revisa que la información sea correcta'
                     }
-                }
+                },
+                oldData: req.body
             });
         });
 	},
     register: (req, res) => {
         res.render('users/register')
     },
-    registerUser: (req, res) => {
-        let errors = validationResult(req);
+    processRegister: (req, res) => {
+        let resultValidation = validationResult(req);
         
         db.Usuarios.findOne({
             where: {
@@ -53,7 +55,7 @@ const controladorUsers =
             }
         }).then(usuario => {
             if(usuario){
-                return res.render('users/register', {
+                res.render('users/register', {
                     errors: {
                         email: {
                             msg: 'Este email ya está registrado'
@@ -62,7 +64,7 @@ const controladorUsers =
                     oldData: req.body
                 })
             } else {
-                if(errors.isEmpty()){
+                if(resultValidation.errors.length == 0){
                     db.Usuarios.create({
                         nombre: req.body.nombre,
                         apellido: req.body.apellido,
@@ -70,15 +72,17 @@ const controladorUsers =
                         email: req.body.email,
                         password: bcryptjs.hashSync(req.body.password, 10),
                         avatar: req.file.filename
+                    }).then(() => {
+                        res.redirect('/login');
+                    });
+                } else {
+                    res.render('users/register', {
+                        errors: resultValidation.mapped(),
+                        oldData: req.body
                     });
                 }
-                return res.render('users/register', {
-                    errors: errors.mapped(),
-                    oldData: req.body
-                });
             }
         })
-        return res.redirect('/login');
     },
     infoUser: (req, res) => {
         res.render('users/infoUser', {

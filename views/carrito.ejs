@@ -8,93 +8,43 @@
 <body id="fondo">
     <%- include ('./partials/header.ejs') %>
         <h2 class="titulo-carrito"> Carrito de Compras </h2>
-        <main class="main-cart">
-            <section class="section-carrito detalle">
-                <h3 class="titulo-carrito"> Detalle de tu compra </h3>
-                <div class="detalle-productos">
-                    <table class="productosCarrito" style="margin: 0 auto;">
-                        <tr>
-                            <td> <img src="/images/productocrema1.jpeg" width=100px alt="guia" > </td>
-                            <td>Cream for Men XXL</td>
-                            <td>$800</td>
-                            <td><form action="" method="">
-                                <select name="cantidad-producto" id="cantidad-producto">
-                                  <option value="1" selected>1</option>
-                                  <option value="2">2</option>
-                                  <option value="3">3</option>
-                                  <option value="4">4</option>
-                                </select>
-                              </form></td>
-                            <td>$800</td>
-                            <td><i class="fas fa-trash-alt"></i></td>
-                        </tr>
-                        <tr>
-                            <td> <img src="/images/productocrema3.jpg" width=100px alt="guia" > </td>
-                            <td>Cream Le Coq Rock</td>
-                            <td>$1200</td>
-                            <td><form action="" method="">
-                                <select name="cantidad-producto" id="cantidad-producto">
-                                  <option value="1">1</option>
-                                  <option value="2" selected>2</option>
-                                  <option value="3">3</option>
-                                  <option value="4">4</option>
-                                </select>
-                              </form></td>
-                            <td>$2400</td>
-                            <td><i class="fas fa-trash-alt"></i></td>
-                        </tr>
-                        <tr>
-                            <td> <img src="/images/Vibrador-2.png" width=100px alt="guia" > </td>
-                            <td>Vibrador Eléctrico</td>
-                            <td>$3200</td>
-                            <td><form action="" method="">
-                                <select name="cantidad-producto" id="cantidad-producto">
-                                  <option value="1" selected>1</option>
-                                  <option value="2">2</option>
-                                  <option value="3">3</option>
-                                  <option value="4">4</option>
-                                </select>
-                              </form></td>
-                            <td>$3200</td>
-                            <td><i class="fas fa-trash-alt"></i></td>
-                        </tr>
-                    </table>
+        <section class="detalle-carrito">
+            <div class="informacion-productos-carrito">
+                <h2 class="titulo-carrito">Detalle de los productos</h2>
+                <div class="encabezado-carrito">
+                    <h5 class="nombre-carrito">Articulo</h5>
+                    <h5 class="precio-carrito">Precio</h5>
+                    <h5 class="total-carrito">Total</h5>
                 </div>
-            </section>
-            <section class="section-carrito resumen">
-                <h3 class="titulo-carrito"> Resumen de tu compra </h3>
-                <br> </br>
-                    <table class="resumenCarrito" style="margin: 0 auto;">
-                        <tr>
-                            <td>Total Productos</td>
-                            <td>3</td>
-                            <td>$6400</td>
-                        </tr>
-                        <tr>
-                            <td>Envio</td>
-                            <td>1</td>
-                            <td>Bonificado</td>
-                        </tr>
-                        <tr>
-                            <td>Promociones</td>
-                            <td><input placeholder="Ingrese el codigo"></td>
-                            <td>$0 </td>
-                        </tr>
-                        <tr>
-                            <td>TOTAL A PAGAR</td>
-                            <td> </td>
-                            <td>$6400</td>
-                        </tr>
-                    </table>
-                    <br> </br>
-                    <div class='botones-carrito'>
-                        <a class="btn btn-primary" href="/" id="botonContinuar" role="button">Continuar Comprando</a>
-                        <a class="btn btn-primary" href="/" id="botonFinalizar" role="button">Finalizar Compra</a>
+                <div class="seccion-items">
+                    
+                </div>
+            </div>
+            <div class="resumen-compra">
+                <h2 class="titulo-carrito">Resumen</h2>
+                <div class="resumen-total">
+                    <div class="total-productos">
+                        <span>Total:</span>
+                        <span class="a-pagar" id="total-items"></span>
+                    </div>
+                    <div class="envio-productos">
+                        <span>Envío fijo:</span>
+                        <span class="a-pagar" id="envio-items"></span>
+                    </div>
+                    <div class="total-pago">
+                        <span>Total con envío:</span>
+                        <span class="a-pagar" id="total-con-envio"></span>
+                    </div>
+                    <div class="codigo-promocion">
+                        <label for="promocion">Codigo:</label>
+                        <input type="text" name="promocion" placeholder="Codigo promocion">
+                    </div>
+                    <div class="btn-carrito">
+                        <button>CONTINUAR COMPRA</button>
                     </div>
                 </div>
-            </section>
-        </main>
-
+            </div>
+        </section>
         <%- include ('./partials/footer.ejs') %>
         <script>
             function menuToggle(){
@@ -102,5 +52,6 @@
                 toggleMenu.classList.toggle('active')
             }
         </script>
+        <script src="/js/carrito.js"></script>
     </body>
 </html>

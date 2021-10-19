@@ -13,12 +13,14 @@ slider1.owlCarousel({
         0:{
             items:1,
             nav: false,
-            dots:true
+            dots:true,
+            autoplay: false
         },
         600:{
             items:2,
             nav: false,
-            dots:true
+            dots:true,
+            autoplay: false
         },
         1024:{
             items:3
@@ -44,12 +46,14 @@ slider2.owlCarousel({
         0:{
             items:1,
             nav: false,
-            dots:true
+            dots:true,
+            autoplay: false
         },
         600:{
             items:2,
             nav: false,
-            dots:true
+            dots:true,
+            autoplay: false
         },
         1024:{
             items:3
@@ -68,14 +72,12 @@ jQuery('body').on('click','#slider1 .owl-next',function(){
     var carousel = jQuery('#slider1').data('owl.carousel');
     carousel.settings.autoplay = false;
     carousel.options.autoplay = false;
-    jQuery('#slider1').trigger('refresh.owl.carousel');
 });
 jQuery('body').on('click','#slider1 .owl-prev',function(){
     jQuery('#slider1').trigger('stop.owl.autoplay');
     var carousel = jQuery('#slider1').data('owl.carousel');
     carousel.settings.autoplay = false;
     carousel.options.autoplay = false;
-    jQuery('#slider1').trigger('refresh.owl.carousel');
 });
 jQuery('body').on('click','#slider2 .owl-next',function(){
     jQuery('#slider2').trigger('stop.owl.autoplay');
