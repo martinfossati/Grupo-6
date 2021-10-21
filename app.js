@@ -3,6 +3,7 @@ const productsRoutes = require('./src/routes/productsRoutes');
 const indexRoutes = require('./src/routes/indexRoutes');
 const carritoRoutes = require('./src/routes/carritoRoutes');
 const usersRoutes = require('./src/routes/usersRoutes');
+const dashboardRoutes = require('./src/routes/dashboardRoutes');
 const express = require('express');
 const path = require('path');
 const methodOverride =  require('method-override');
@@ -34,6 +35,8 @@ app.use('/carrito', carritoRoutes);
 app.use('/productos', productsRoutes);
 
 app.use('/', usersRoutes);
+
+app.use('/', dashboardRoutes);
 
 /** PORT **/
 app.listen(process.env.PORT || 3000, function() {
