@@ -14,7 +14,7 @@
                 <form action="/login" method="POST" id="formLogin">
                     <div class="mb-4">
                       <label for="email" class="form-label">Email:</label>
-                      <input type="email" id="email" name="email" class="form-input" placeholder="Ingresa tu email" value="<%= locals.oldData ? oldData.email : null %>">
+                      <input type="email" id="emailLogin" name="email" class="form-input" placeholder="Ingresa tu email" value="<%= locals.oldData ? oldData.email : null %>">
                       <div id="emailErrorLogin" class="text-error"></div>
                       <% if (locals.errors && errors.email) { %>
                         <div class="text-alert">
@@ -30,7 +30,7 @@
                     <label for="" class="texto-checkbox">
                       <input type="checkbox" name="rememberUser" class="texto-usuario"> Recordar mi usuario
                     </label>
-                    <button type="submit" class="boton-register">Iniciar sesión</button>
+                    <button type="submit" class="btn btn-primary w-100 boton-login" >Iniciar sesión</button>
                   </form>
                 </div>
 
