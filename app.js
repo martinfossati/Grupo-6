@@ -10,6 +10,7 @@ const methodOverride =  require('method-override');
 const session = require('express-session');
 const cookies = require('cookie-parser');
 const userLoggedMiddleware = require('./src/middlewares/userLoggedMiddleware');
+const cors = require('cors')
 
 /** EXPRESS **/
 const app = express();
@@ -23,6 +24,7 @@ app.use(methodOverride('_method'));
 app.use(cookies());
 app.use(session({secret: "FansClub Secret", resave: false, saveUninitialized: false}));
 app.use(userLoggedMiddleware);
+app.use(cors());
 
 /** TEMPLATE ENGINE **/
 app.set('view engine', 'ejs');
@@ -39,6 +41,6 @@ app.use('/', usersRoutes);
 app.use('/', dashboardRoutes);
 
 /** PORT **/
-app.listen(process.env.PORT || 3000, function() {
+app.listen(process.env.PORT || 3001, function() {
     console.log("Servidor Grupo 6 corriendo");
 });

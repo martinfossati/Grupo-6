@@ -74,15 +74,42 @@ header{
 
 /** FOOTER **/
 
-.pie{
-    background-color:#F7F7F7;
-    color: #7e8187;
+footer{
+    background-color:#c7c7c7;
+    color: black;
+    min-height: 250px;
+    height: auto;
+    margin-top: 5%;
+}
+.social-media{
+    color: black;
+    text-align: center;
+    padding: 10px 0;
+    font-weight: 600;
+}
+.social-media i{
+    margin: 10px 25px;
+}
+.info-footer{
+    width: 90%;
     display: flex;
-    box-sizing: border-box;
-    flex-direction: row;
     justify-content: space-around;
-    padding: 3%;
-    margin-top: 1%;
+    margin: auto;
+}
+.seccion-footer{
+    padding: 20px 0;
+}
+.seccion-footer h2{
+    font-size: 20px;
+}
+.seccion-footer i{
+    margin-right: 6px;
+}
+.derechos p{
+    text-align: center;
+    border-top: 1px solid black;
+    margin-bottom: 10px;
+    padding-top: 10px;
 }
 
 /** MENU DESPLEGABLE DERECHO **/
