@@ -1444,4 +1444,7 @@ input [type="submit"]:hover {
     .footer-nav ul {
         margin-right: 20px;
     }
+    .info-footer{
+        display: block;
+    }
 }
