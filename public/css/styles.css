@@ -28,7 +28,6 @@ header{
     color: floralwhite;
     font-family: 'Pacifico', cursive;
     font-size: 60px;
-    margin-right: 44px;
     transition: 0.5s;
 }
 .main-header-titulo:hover{
@@ -56,15 +55,20 @@ header{
 }
 #shop-cart {
     text-decoration: none;
+    font-size: 20px;
 }
 #shop-cart i:hover {
     transition: 1s;
     transform: scale(1.2);
 }
+#contador-carrito{
+    font-family: 'Source Sans Pro', sans-serif;
+}
 .main-header-top-bar .btn-menu{
-    float: left;
-    margin-left: 20px;
-    margin-top: 25px;
+    position: absolute;
+    left: 2%;
+    transform: translateX(-2%);
+    top: 25px;
 }
 .main-header-top-bar .btn-menu label{
     color: #fff;
@@ -121,7 +125,8 @@ footer{
 .menu-derecho{
     position: absolute;
     z-index: 10;
-    right: 10px;
+    right: 2%;
+    transform: translateX(2%);
     top: 40px;
 }
 .menu-derecho .perfil{
@@ -129,7 +134,6 @@ footer{
     overflow: hidden;
     position: relative;
     width: 60px;
-    margin-right: 20px;
     transition: 1s;
 }
 .perfil:hover{
@@ -145,7 +149,7 @@ footer{
     border-radius: 15px;
     padding: 10px 20px;
     position: absolute;
-    right: -10px;
+    right: -32px;
     width: 200px;
     transition: 0.5s;
     top: 120px;
@@ -306,7 +310,7 @@ footer{
     position: absolute;
     top: 180px;
     left: 90px;
-    font-size: 48px;
+    font-size: 44px;
     font-family: 'Bebas Neue', cursive;
 }
 .carrusel-home h2{
@@ -518,6 +522,13 @@ footer{
 }
 
 /** CARRITO DE COMPRAS **/
+.seccion-items h1 {
+    text-align: center;
+    margin-top: 105px;
+    font-size: 34px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: none;
+}
 .titulo-carrito{
     margin-top: 20px;
     margin-bottom: 20px;
@@ -608,7 +619,7 @@ footer{
     box-shadow: 0 0 10px 0px rgb(0 0 0 / 30%);
 }
 .resumen-total{
-    width: 80%;
+    width: 85%;
     margin: auto;
 }
 .resumen-total div{
@@ -621,12 +632,19 @@ footer{
     float: right;
 }
 .codigo-promocion label{
-    margin-bottom: 5px;
+    display: block;
 }
 .codigo-promocion input{
-    width: auto;
-    margin-top: 8px;
-    float: right;
+    display: block;
+    width: 100%;
+    padding-left: 5px;
+    border: none;
+}
+.xx{
+    border: 1.5px solid black;
+    padding: 2px;
+    border-radius: 6px;
+    margin-top: 8px !important;
 }
 .btn-carrito{
     text-align: center;
@@ -1351,11 +1369,60 @@ input [type="submit"]:hover {
     .container{
         max-width: 1000px !important;
     }
+    .carrusel-home h1{
+        font-size: 36px;
+    }
+    /* CARRITO */
+    .articulo{
+        font-size: 20px;
+    }
+    .resumen-total span, .codigo-promocion label{
+        font-size: 22px;
+    }
 }
 @media (max-width: 1024px){
     /* HOME */
     .container{
         max-width: 980px !important;
+    }
+    .carrusel-home h1{
+        display: none;
+    }
+    .carrusel-home h5{
+        font-size: 32px;
+        top: 180px;
+    }
+    .carrusel-home a{
+        top: 240px;
+        padding: 8px 32px;
+        font-size: 22px;
+    }
+    /* CARRITO */
+    .informacion-productos-carrito{
+        width: 60%;
+    }
+    .resumen-compra{
+        width: 35%;
+    }
+    #nombreCarrito{
+        display: none;
+    }
+    .nombre-carrito, .imagen-carrito{
+        left: 12%;
+        transform: translateX(-12%);
+    }
+    .precio-carrito{
+        left: 50%;
+        transform: translateX(-55%);
+    }
+    .total-carrito{
+        left: 80%;
+        transform: translateX(-80%);
+    }
+    .borrar-item{
+        left: 95%;
+        transform: translateX(-95%);
+        top: 24%;
     }
     /* DETALLE DEL PRODUCTO */
     .main-detalle {
@@ -1384,8 +1451,14 @@ input [type="submit"]:hover {
 }
 @media (max-width: 768px){
     /* HOME */
+    .header-top-bar{
+        display: none;
+    }
     .container{
         max-width: 720px !important;
+    }
+    .carrusel-home{
+        display: none;
     }
     .search-bar {
         margin-bottom: 40px;
@@ -1413,17 +1486,60 @@ input [type="submit"]:hover {
     .productos {
         width: 40%;
     }
+    #h2-lenceria, .h2-home-section{
+        font-size: 40px;
+    }
+    .btn-home-section{
+        font-size: 14px;
+    }
+    /* CARRITO */
+    .detalle-carrito{
+        width: 80%;
+        margin: auto;
+        display: block;
+    }
+    .informacion-productos-carrito{
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .resumen-compra{
+        width: 100%;
+        height: 420px;
+        margin: auto;
+    }
 }
 @media (max-width: 480px){
     /* HOME */
+    .search-form, .search-input{
+        display: none;
+    }
+    .main-header-top-bar .btn-menu{
+        left: 5%;
+        transform: translateX(-5%);
+        top: 95px;
+    }
+    .main-header-top-bar .btn-menu label{
+        font-size: 24px;
+    }
+    .menu-derecho{
+        right: 3%;
+        transform: translateX(3%);
+        top: 103px;
+    }
+    .menu-derecho .perfil i{
+        font-size: 20px;
+    }
     .container{
         max-width: 380px !important;
     }
     .header-top-bar {
         font-size: 14px
     }
-    .main-header-top-bar a {
-        display: none;
+    .main-header-titulo {
+        font-size: 55px;
+    }
+    .main-header-top-bar {
+        height: 90px;
     }
     .search-bar a {
         display: none;
@@ -1441,10 +1557,22 @@ input [type="submit"]:hover {
     .productos {
         width: 80%;
     }
+    .home-section{
+        display: none;
+    }
+    /* CARRITO */
+    .encabezado-carrito{
+        display: none;
+    }
+    .detalle-carrito h2{
+        font-size: 28px;
+    }
+    /* FOOTER */
     .footer-nav ul {
         margin-right: 20px;
     }
     .info-footer{
+        width: 55%;
         display: block;
     }
 }

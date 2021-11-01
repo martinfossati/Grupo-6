@@ -96,3 +96,12 @@ function menuToggle(){
     const toggleMenu = document.querySelector('.menu');
     toggleMenu.classList.toggle('active')
 }
+
+let contadorCarrito = document.getElementById('contador-carrito');
+
+let itemsEnCarrito = localStorage.getItem('itemsEnCarrito');
+let numeroItems = itemsEnCarrito ? JSON.parse(itemsEnCarrito) : [];
+
+if(numeroItems.length >= 1) {
+    contadorCarrito.innerText = numeroItems.length;
+}    

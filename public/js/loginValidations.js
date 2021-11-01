@@ -2,6 +2,8 @@ window.addEventListener('load', () => {
     var formularioLogin = document.getElementById('formLogin');
     var emailErrorLogin = document.getElementById('emailErrorLogin');
 
+    let error = ` <i class="fas fa-exclamation-circle" style ="color: yellow"></i> `
+
     formularioLogin.addEventListener('submit', (event => {
         event.preventDefault();
 
@@ -12,7 +14,7 @@ window.addEventListener('load', () => {
             errores.email = "Revisa que la información sea correcta"
         }
         if(Object.keys(errores).length > 0){
-            emailErrorLogin.innerText = (errores.email) ? errores.email : "";
+            emailErrorLogin.innerHTML = (errores.email) ? error + errores.email + error : "";
         } else {
             formularioLogin.submit();
         }

@@ -33,4 +33,13 @@ window.addEventListener('load', () => {
     
         contadorCarrito.innerText = itemsCarrito.length;
     }
+    
+    let contadorCarrito = document.getElementById('contador-carrito');
+
+    let itemsEnCarrito = localStorage.getItem('itemsEnCarrito');
+    let numeroItems = itemsEnCarrito ? JSON.parse(itemsEnCarrito) : [];
+
+    if(numeroItems.length >= 1) {
+        contadorCarrito.innerText = numeroItems.length;
+    }    
 })

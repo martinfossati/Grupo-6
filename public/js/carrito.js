@@ -1,6 +1,7 @@
 window.addEventListener('load', () => {
     
     let seccionItems = document.querySelector('.seccion-items');
+    let carritoVacio = document.getElementById('carrito-vacio');
 
     let productosEnCarrito = localStorage.getItem('itemsEnCarrito');
     let itemsArray = productosEnCarrito ? JSON.parse(productosEnCarrito) : [];
@@ -11,12 +12,14 @@ window.addEventListener('load', () => {
             seccionItems.innerHTML +=
             `<div class="items-carrito">
                 <img src="${item.img}" alt="" class="imagen-carrito">
-                <h5 class="precio-carrito articulo">$${item.precio}</h5>
-                <h5 class="total-carrito articulo">$${item.precio}</h5>
-                <h5 class="nombre-carrito articulo">${item.nombre}</h5>
+                <h5 class="precio-carrito articulo">${item.precio}</h5>
+                <h5 class="total-carrito articulo">${item.precio}</h5>
+                <h5 class="nombre-carrito articulo" id="nombreCarrito">${item.nombre}</h5>
                 <i class="fas fa-trash borrar-item"></i>
             </div>`
         }
+    } else {
+        carritoVacio.style.display = "block";
     }
 
     let botonEliminar = document.getElementsByClassName('borrar-item');
@@ -45,7 +48,7 @@ window.addEventListener('load', () => {
         let sumatoria = 0;
 
         for (let i = 0; i < itemsArray.length; i++) {
-            let precios = itemsArray[i].precio;
+            let precios = itemsArray[i].precio.replace('$', '')
             sumatoria += parseInt(precios);
         }
         total.innerText = ('$' + sumatoria);
@@ -65,5 +68,13 @@ window.addEventListener('load', () => {
     }
 
     resumenTotal();
-    
+
+    let contadorCarrito = document.getElementById('contador-carrito');
+
+    let itemsEnCarrito = localStorage.getItem('itemsEnCarrito');
+    let numeroItems = itemsEnCarrito ? JSON.parse(itemsEnCarrito) : [];
+
+    if(numeroItems.length >= 1) {
+        contadorCarrito.innerText = numeroItems.length;
+    }    
 })
