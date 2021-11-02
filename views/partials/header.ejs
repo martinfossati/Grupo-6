@@ -15,10 +15,10 @@
             <nav>
                 <a href="/productos/listado">Todos los productos</a>
                 <a href="/productos/creacion">Crear producto</a>
-                <a href="#">Foro</a>
                 <a href="#">Contacto</a>
                 <a href="#">Buscar <i class="fas fa-search"></i></a>
                 <a href="/productos/listado">Intranet</a>
+                <a href="/productos/listado">Dashboard</a>
             </nav>
             <label for="btn-menu"><i class="fas fa-times"></i></label>
         </div>
@@ -44,7 +44,7 @@
                       <i class="fas fa-door-open"></i>
                       <a href="/logout" id="cerrar-sesion">Cerrar sesion</a>
                   </li>
-                  <% } else { %> 
+                <% } else { %> 
                   <li>
                       <i class="fas fa-sign-in-alt"></i>
                       <a href="/login">Iniciar sesion</a>
@@ -53,15 +53,17 @@
                       <i class="far fa-clipboard"></i>
                       <a href="/register">Registrarse</a>
                   </li>
-                  <% } %> 
+                <% } %> 
               </ul>
           </div>
       </div>
       <form action="" style="display: inline;" class="search-form">
         <input type="text" placeholder="Busca tus productos" class="search-input">
       </form>
-    <a href="/carrito" id="shop-cart">
-      <i class="fas fa-shopping-cart"> <span id="contador-carrito"> 0 </span> </i>
-    </a>
+      <% if (locals.isLogged) { %> 
+        <a href="/carrito" id="shop-cart">
+          <i class="fas fa-shopping-cart"> <span id="contador-carrito"> 0 </span> </i>
+        </a>
+        <% } %> 
   </div>
 </header>

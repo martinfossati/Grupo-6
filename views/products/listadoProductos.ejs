@@ -46,7 +46,7 @@
         <% } %> 
         </section>
         <h2 class="titulo-listado">Accesorios</h2>
-        <section class="total-productos-listado">
+        <section class="total-productos-listado" id="accesorios">
             <% for(let producto of todosLosProductos) {%> 
                 <% if(producto.id_categoria == 3) {%> 
             <a href="/productos/detalle/<%= producto.id%>" id="anchor-listado">
@@ -65,7 +65,7 @@
         <% } %> 
         </section>
         <h2 class="titulo-listado">Lencería</h2>
-        <section class="total-productos-listado">
+        <section class="total-productos-listado" id="lenceria">
             <% for(let producto of todosLosProductos) {%> 
                 <% if(producto.id_categoria == 4) {%> 
             <a href="/productos/detalle/<%= producto.id%>" id="anchor-listado">

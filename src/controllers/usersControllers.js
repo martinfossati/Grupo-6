@@ -85,6 +85,7 @@ const controladorUsers =
         })
     },
     infoUser: (req, res) => {
+        console.log(req.session.userLogged);
         res.render('users/infoUser', {
             user: req.session.userLogged
         });

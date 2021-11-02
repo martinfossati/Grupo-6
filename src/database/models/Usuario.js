@@ -32,6 +32,9 @@ module.exports = (sequelize, dataTypes) => {
         avatar: {
             type: dataTypes.STRING(100)
         }
+        // administador: {
+        //     type: dataTypes.INTEGER
+        // }
     };
 
     let config = {
