@@ -1118,7 +1118,14 @@ input [type="submit"]:hover {
     background-size: cover;
     background-position: center;
 }
-
+#loginBoton{
+    padding: 8px 40px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    background-color: #e229ff;
+}
 /** REGISTER **/
 
 .main-register{
