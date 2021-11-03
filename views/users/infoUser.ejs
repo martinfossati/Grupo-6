@@ -12,13 +12,19 @@
             <nav>
                 <a href="">Mi cuenta</a>
                 <a href="">Gestionar cuenta</a>
-                <a href="">Idioma</a>
-                <a href="">Recibos</a>
+                <% if(user.administrador == 0) {%> 
+                    <a href="">Idioma</a>
+                    <a href="">Recibos</a>
+                <% } %> 
+                <% if(user.administrador == 1){ %> 
+                    <a href="/productos/creacion">Crear Producto <i class="fas fa-plus-circle"></i> </a>
+                    <a target="_blank" rel="noopener noreferrer" href="http://localhost:3000">Dashboard <i class="fas fa-tachometer-alt"></i> </a>
+                <% } %> 
             </nav>
         </div>
         <div class="mi-cuenta">
             <div class="img-avatar" style="background-image: url(/images/avatars/<%=user.avatar%>)">
-                <span>¡Hola, <%= user.nombre %> !</span>
+                <span>¡Hola, <%= user.nombre %>!</span>
             </div> 
             <div class="informacion-personal">
                 <h3>Información personal</h3>

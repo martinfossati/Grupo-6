@@ -9,8 +9,8 @@ const path = require('path');
 const methodOverride =  require('method-override');
 const session = require('express-session');
 const cookies = require('cookie-parser');
-const userLoggedMiddleware = require('./src/middlewares/userLoggedMiddleware');
 const cors = require('cors')
+const userLoggedMiddleware = require('./src/middlewares/userLoggedMiddleware');
 
 /** EXPRESS **/
 const app = express();

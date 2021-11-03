@@ -12,7 +12,7 @@ const controladorIndex =
             limit: 4
         });
 
-        let todasLasPromesas = Promise.all([todosLosProductos, masVisitados]).then(productos => {
+        Promise.all([todosLosProductos, masVisitados]).then(productos => {
             res.render('index', {productos})
         });
     }

@@ -709,11 +709,24 @@ footer{
     background-position: center center;
     position: relative;
 }
+.descuento-listado {
+    border: 1px solid black;
+    padding: 0px 10px;
+    border-radius: 16px;
+    background-color: #c90032;
+    color: #FFFFFF;
+    box-shadow: 0px 0px 10px #c90032;
+    position: absolute;
+    bottom: 55px;
+    right: 30px;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 20px;
+}
 #lenceria{
-    scroll-margin-top: 240px;
+    scroll-margin-top: 300px;
 }
 #accesorios{
-    scroll-margin-top: 240px;
+    scroll-margin-top: 300px;
 }
 
 /** DETALLE DEL PRODUCTO **/

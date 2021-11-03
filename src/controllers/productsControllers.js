@@ -5,17 +5,29 @@ const { validationResult } = require('express-validator');
 
 const controladorProducts = 
 {
-    productDetail: (req, res) => {
+    productDetail: async (req, res) => {
 
         let idURL = req.params.id;
-		let productoEncontrado;
-
-        db.Productos.findOne({
+        
+        let articulo = await db.Productos.findOne({
             where: {id: idURL}
-        }).then(resultado =>{
-            productoEncontrado = resultado;
-            res.render('products/detalleProducto', {productoDetalle: productoEncontrado});
+        }).then
+
+        let emailEnSession;
+        if(req.session.userLogged == undefined){
+            emailEnSession = "";
+        } else {
+            emailEnSession = req.session.userLogged.email
+        }
+
+        let usuario = await db.Usuarios.findOne({
+            where: {email: emailEnSession}
+        }).th
+
+        Promise.all([articulo, usuario]).then(data => {
+            res.render('products/detalleProducto', {data})
         });
+
     },
     createProduct: (req, res) => {
         res.render('products/creacionProducto')

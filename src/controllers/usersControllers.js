@@ -71,7 +71,8 @@ const controladorUsers =
                         fecha_nacimiento: req.body.fechaNacimiento,
                         email: req.body.email,
                         password: bcryptjs.hashSync(req.body.password, 10),
-                        avatar: req.file.filename
+                        avatar: req.file.filename,
+                        administrador: 0
                     }).then(() => {
                         res.redirect('/login');
                     });

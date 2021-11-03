@@ -18,7 +18,9 @@
                     </div>
                     <div class="textoProductos-listado">
                         <p class="precios-listado">$<%= producto.precio%></p>
-                        <p class="descuento-listado"><%= producto.descuento%>%</p>
+                        <% if(producto.descuento > 0) { %>
+                            <p class="descuento-listado"><%= producto.descuento%>%</p>
+                        <% } %>
                         <p class="descripcion-listado"><%= producto.nombre%></p>
                     </div>
                 </div>
@@ -37,7 +39,9 @@
                     </div>
                     <div class="textoProductos-listado">
                         <p class="precios-listado">$<%= producto.precio%></p>
-                        <p class="descuento-listado"><%= producto.descuento%>%</p>
+                        <% if(producto.descuento > 0) { %>
+                            <p class="descuento-listado"><%= producto.descuento%>%</p>
+                        <% } %>
                         <p class="descripcion-listado"><%= producto.nombre%></p>
                     </div>
                 </div>
@@ -56,7 +60,9 @@
                     </div>
                     <div class="textoProductos-listado">
                         <p class="precios-listado">$<%= producto.precio%></p>
-                        <p class="descuento-listado"><%= producto.descuento%>%</p>
+                        <% if(producto.descuento > 0) { %>
+                            <p class="descuento-listado"><%= producto.descuento%>%</p>
+                        <% } %>
                         <p class="descripcion-listado"><%= producto.nombre%></p>
                     </div>
                 </div>
@@ -75,7 +81,9 @@
                     </div>
                     <div class="textoProductos-listado">
                         <p class="precios-listado">$<%= producto.precio%></p>
-                        <p class="descuento-listado"><%= producto.descuento%>%</p>
+                        <% if(producto.descuento > 0) { %>
+                            <p class="descuento-listado"><%= producto.descuento%>%</p>
+                        <% } %> 
                         <p class="descripcion-listado"><%= producto.nombre%></p>
                     </div>
                 </div>

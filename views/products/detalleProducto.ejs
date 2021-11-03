@@ -3,23 +3,25 @@
   <head>
     <%- include ('../partials/head.ejs') %>
     <link rel="stylesheet" href="/css/styles.css">
-    <title>Detalle producto</title>
+    <title>Detalle de <%= data[0].nombre %></title>
 </head>
   <body>
   <%- include ('../partials/header.ejs') %>
     <main>
       <section class="main-detalle">
         <div class="imagen-principal-producto">
-          <img src="/images/products/<%= productoDetalle.imagen %>" alt="" id="img-carrito">
+          <img src="/images/products/<%= data[0].imagen %>" alt="" id="img-carrito">
         </div>
         <div class="informacion-producto">
           <div class="nombre-producto">
-            <h3 id="nombre-carrito"> <%= productoDetalle.nombre %> </h3>
+            <h3 id="nombre-carrito"> <%= data[0].nombre %> </h3>
           </div>
           <div class="etiquetas-producto">
-            <span class="descuento-producto"> <%= productoDetalle.descuento %> % OFF </span>
+            <% if(data[0].descuento >= 5) { %>
+              <span class="descuento-producto"> <%= data[0].descuento %> % OFF </span>
+            <% } %> 
           </div>
-          <h4 class="precio-producto" id="precio-carrito"> $<%= productoDetalle.precio %> </h4>
+          <h4 class="precio-producto" id="precio-carrito"> $<%= data[0].precio %> </h4>
           <p> <i class="fas fa-truck"></i>  Envíos a todo el país </p>
           <div class="opciones-producto">
             <form action="" method="">
@@ -49,7 +51,7 @@
                   </button>
                 </h2>
                 <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                  <div class="accordion-body"><%= productoDetalle.descripcion %></div>
+                  <div class="accordion-body"><%= data[0].descripcion %></div>
                 </div>
               </div>
               <div class="accordion-item">
@@ -60,45 +62,19 @@
                 </h2>
                 
                 <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                  <div class="accordion-body"><%= productoDetalle.modo_de_uso %></div>
+                  <div class="accordion-body"><%= data[0].modo_de_uso %></div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="botonesABM" >
-            <a href="/productos/edicion/<%=productoDetalle.id%>" class="botonEdicion" >EDITAR PRODUCTO</a>
-            <form action="/productos/<%=productoDetalle.id%>?_method=DELETE" method="POST" onsubmit="return confirm('Esta seguro que desea eliminarlo?');"> 
-              <button type="submit" class="botonEliminar">ELIMINAR</button>
-            </form>
-          </div>
-        </div>
-      </section>
-      <div id="linea-detalle"></div>
-      <h4 id="texto-productos-similares"> PRODUCTOS SIMILARES </h4>
-      <section class="productos-similares">
-        <div class="productos">
-          <img src="/images/juguete-anal-1.jpg" alt="">
-          <div class="precio-productos-similares">
-            <span> $1.199 </span>
-          </div>
-        </div>
-        <div class="productos">
-          <img src="/images/vibrador-1.jpg" alt="">
-          <div class="precio-productos-similares">
-            <span> $2.899 </span>
-          </div>
-        </div>
-        <div class="productos">
-          <img src="/images/gel-1.jpg" alt="">
-          <div class="precio-productos-similares">
-            <span> $890 </span>
-          </div>
-        </div>
-        <div class="productos">
-          <img src="/images/vibrador-2.png" alt="">
-          <div class="precio-productos-similares">
-            <span> $4.800 </span>
-          </div>
+          <% if(locals.isLogged && data[1].administrador == 1) { %> 
+            <div class="botonesABM" >
+              <a href="/productos/edicion/<%=data[0].id%>" class="botonEdicion" >EDITAR PRODUCTO</a>
+              <form action="/productos/<%=data[0].id%>?_method=DELETE" method="POST" onsubmit="return confirm('Esta seguro que desea eliminarlo?');"> 
+                <button type="submit" class="botonEliminar">ELIMINAR</button>
+              </form>
+            </div>
+          <% } %>
         </div>
       </section>
     </main>

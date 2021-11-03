@@ -14,11 +14,9 @@
         <div class="cont-menu">
             <nav>
                 <a href="/productos/listado">Todos los productos</a>
-                <a href="/productos/creacion">Crear producto</a>
-                <a href="#">Contacto</a>
                 <a href="#">Buscar <i class="fas fa-search"></i></a>
-                <a href="/productos/listado">Intranet</a>
-                <a href="/productos/listado">Dashboard</a>
+                <a href="#">Contacto</a>
+                <a href="#">Ayuda</a>
             </nav>
             <label for="btn-menu"><i class="fas fa-times"></i></label>
         </div>
@@ -42,12 +40,12 @@
                   </li>
                   <li>
                       <i class="fas fa-door-open"></i>
-                      <a href="/logout" id="cerrar-sesion">Cerrar sesion</a>
+                      <a href="/logout" id="cerrar-sesion">Cerrar sesión</a>
                   </li>
                 <% } else { %> 
                   <li>
                       <i class="fas fa-sign-in-alt"></i>
-                      <a href="/login">Iniciar sesion</a>
+                      <a href="/login">Iniciar sesión</a>
                   </li>
                   <li>
                       <i class="far fa-clipboard"></i>
@@ -64,6 +62,6 @@
         <a href="/carrito" id="shop-cart">
           <i class="fas fa-shopping-cart"> <span id="contador-carrito"> 0 </span> </i>
         </a>
-        <% } %> 
+      <% } %> 
   </div>
 </header>
