@@ -11,7 +11,7 @@ const controladorProducts =
         
         let articulo = await db.Productos.findOne({
             where: {id: idURL}
-        }).then
+        })
 
         let emailEnSession;
         if(req.session.userLogged == undefined){
